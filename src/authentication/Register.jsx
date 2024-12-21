@@ -7,7 +7,6 @@ import Swal from "sweetalert2";
 import { Helmet } from "react-helmet";
 import { AuthContext } from "../context/AuthProvider";
 
-
 const Register = () => {
   const { logInByGoogle, signInByEmailPassword, user, manageProfile, logOut } =
     useContext(AuthContext);
@@ -51,7 +50,6 @@ const Register = () => {
     logInByGoogle()
       .then((res) => {
         navigate("/");
-        logOut();
         notifyForLogIn();
       })
       .catch((err) => setErrorMessage(err.message));
@@ -74,7 +72,6 @@ const Register = () => {
       .then((res) => {
         navigate("/");
         notifyForLogIn();
-        logOut();
         e.target.reset();
         manageProfile(name, photo)
           .then((response) => "good")
@@ -85,7 +82,7 @@ const Register = () => {
   return (
     <div>
       <Helmet>
-        <title>Sign Up | Chill Gamer</title>
+        <title>Sign Up | NEED VOLUNTEER</title>
       </Helmet>
       <div className="flex justify-center items-center py-14 px-3">
         <div className="card bg-base-100 w-full max-w-lg p-4 shrink-0 shadow-2xl">

@@ -1,7 +1,16 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../context/AuthProvider";
 
 const Navbar = () => {
+  const { user, logOut } = useContext(AuthContext);
+
+  const navigate = useNavigate();
+  const handleLogOut = () => {
+    logOut();
+    navigate("/");
+  };
+
   return (
     <div>
       <div className="navbar bg-base-100 w-[90%] mx-auto">
@@ -54,43 +63,58 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="navbar-end gap-1">
-          {/* Login and Register btn */}
-          <Link to={"/login"} className="btn btn-sm">Login</Link>
-          <Link to={"/register"} className="btn btn-sm">Register</Link>
-
-          {/* Avatar */}
-          {/* <div className="dropdown dropdown-end">
-            <div
-              tabIndex={0}
-              role="button"
-              className="btn btn-ghost btn-circle avatar"
-            >
-              <div className="w-10 rounded-full">
-                <img
-                  alt="User avatar"
-                  src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
-                />
+          {user ? (
+            <>
+              {/* Avatar */}
+              <div className="dropdown dropdown-end">
+                <div
+                  tabIndex={0}
+                  role="button"
+                  className="btn btn-ghost btn-circle avatar"
+                >
+                  <div className="w-10 rounded-full">
+                    <img
+                      alt="/"
+                      referrerPolicy="no-referrer"
+                      src={user?.photoURL}
+                    />
+                  </div>
+                </div>
+                <ul
+                  tabIndex={0}
+                  className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+                >
+                  <li>
+                    <a className="justify-between">
+                      Profile
+                      <span className="badge">New</span>
+                    </a>
+                  </li>
+                  <li>
+                    <a>Settings</a>
+                  </li>
+                  <li>
+                    <a>Logout</a>
+                  </li>
+                </ul>
               </div>
-            </div>
-            <ul
-              tabIndex={0}
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
-            >
-              <li>
-                <a className="justify-between">
-                  Profile
-                  <span className="badge">New</span>
-                </a>
-              </li>
-              <li>
-                <a>Settings</a>
-              </li>
-              <li>
-                <a>Logout</a>
-              </li>
-            </ul>
-          </div>
-          <Link><button className="btn btn-sm">Logout</button></Link> */}
+
+              <button onClick={handleLogOut} className="btn btn-sm">
+                Logout
+              </button>
+            </>
+          ) : (
+            <>
+              <Link to={"/login"} className="btn btn-sm">
+                Login
+              </Link>
+              <Link to={"/register"} className="btn btn-sm">
+                Register
+              </Link>
+            </>
+          )}
+
+          {/* Login and Register btn */}
         </div>
       </div>
     </div>

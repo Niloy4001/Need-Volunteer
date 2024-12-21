@@ -6,7 +6,6 @@ import { HiOutlineEyeOff } from "react-icons/hi";
 import { RiEyeLine } from "react-icons/ri";
 import { AuthContext } from "../context/AuthProvider";
 
-
 const LogIn = () => {
   const { logInByGoogle, logInByEmailPassword, user, setForgotEmail } =
     useContext(AuthContext);
@@ -52,7 +51,7 @@ const LogIn = () => {
   return (
     <div>
       <Helmet>
-        <title>Login | Chill Gamer</title>
+        <title>Login | NEED VOLUNTEER</title>
       </Helmet>
       <div className="flex justify-center items-center py-14 px-3">
         <div className="card bg-base-100 w-full max-w-lg p-4 shrink-0 shadow-2xl">
