@@ -7,10 +7,10 @@ const Navbar = () => {
   const links = (
     <>
       <li>
-        <NavLink>Home</NavLink>
+        <NavLink to={"/"}>Home</NavLink>
       </li>
       <li>
-        <NavLink>All volunteer Need posts</NavLink>
+        <NavLink to={"/allPost"}>All volunteer Need posts</NavLink>
       </li>
     </>
   );
@@ -46,7 +46,7 @@ const Navbar = () => {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-10 mt-3 w-52 p-2 shadow"
             >
               {links}
             </ul>
@@ -82,10 +82,10 @@ const Navbar = () => {
                 </div>
                 <ul
                   tabIndex={0}
-                  className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
+                  className="menu menu-sm dropdown-content bg-base-100 rounded-box z-10 mt-3 w-52 p-2 shadow"
                 >
                   <li>
-                    <Link>Add Volunteer need Post</Link>
+                    <Link to={"addPost"}>Add Volunteer need Post</Link>
                   </li>
                   <li>
                     <Link>Manage My Posts</Link>

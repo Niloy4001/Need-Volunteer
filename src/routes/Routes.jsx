@@ -3,6 +3,8 @@ import MainLayout from "../layout/MainLayout";
 import LogIn from "../authentication/Login";
 import Register from "../authentication/Register";
 import Home from "../pages/Home";
+import AllPost from "../pages/AllPost";
+import AddPost from "../pages/AddPost";
 
 const router = createBrowserRouter([
     {
@@ -12,6 +14,14 @@ const router = createBrowserRouter([
         {
             path:"/",
             element: <Home></Home>,
+        },
+        {
+            path:"/allPost",
+            element: <AllPost></AllPost>,
+        },
+        {
+            path:"/addPost",
+            element: <AddPost></AddPost>,
         },
         {
             path:"/login",

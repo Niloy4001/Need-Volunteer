@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 
 
 const VolunteerNeedsNow = () => {
@@ -15,7 +16,7 @@ const VolunteerNeedsNow = () => {
             {
                 posts.length > 0 ? 
                 posts.map(post => 
-                    <div className="max-w-sm rounded overflow-hidden shadow-lg border border-gray-200">
+                    <div key={post._id} className="max-w-sm rounded overflow-hidden shadow-lg border border-gray-200">
                     <img className="w-full h-48 object-cover" src={post.thumbnail} alt={post.postTitle} />
                     <div className="px-6 py-4">
                       <h3 className="text-xl font-bold text-gray-800">{post.postTitle}</h3>
@@ -34,7 +35,7 @@ const VolunteerNeedsNow = () => {
             }
         </div>
         <div>
-            <button>See All</button>
+            <Link to={"/allPost"} className='btn'><button>See All</button></Link>
         </div>
     </div>
   )
