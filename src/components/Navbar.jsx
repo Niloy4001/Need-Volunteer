@@ -1,8 +1,20 @@
 import React, { useContext } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthProvider";
+import { Tooltip } from "react-tooltip";
 
 const Navbar = () => {
+  const links = (
+    <>
+      <li>
+        <NavLink>Home</NavLink>
+      </li>
+      <li>
+        <NavLink>All volunteer Need posts</NavLink>
+      </li>
+    </>
+  );
+
   const { user, logOut } = useContext(AuthContext);
 
   const navigate = useNavigate();
@@ -36,31 +48,13 @@ const Navbar = () => {
               tabIndex={0}
               className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
             >
-              <li>
-                <a>Item 1</a>
-              </li>
-              <li>
-                <a>Item 1</a>
-              </li>
-              <li>
-                <a>Item 3</a>
-              </li>
+              {links}
             </ul>
           </div>
           <a className="btn btn-ghost text-xl">NEED VOLUNTEER</a>
         </div>
         <div className="navbar-center hidden lg:flex">
-          <ul className="menu menu-horizontal px-1">
-            <li>
-              <a>Item 1</a>
-            </li>
-            <li>
-              <a>Item 1</a>
-            </li>
-            <li>
-              <a>Item 3</a>
-            </li>
-          </ul>
+          <ul className="menu menu-horizontal px-1">{links}</ul>
         </div>
         <div className="navbar-end gap-1">
           {user ? (
@@ -73,11 +67,17 @@ const Navbar = () => {
                   className="btn btn-ghost btn-circle avatar"
                 >
                   <div className="w-10 rounded-full">
-                    <img
-                      alt="/"
-                      referrerPolicy="no-referrer"
-                      src={user?.photoURL}
-                    />
+                    <div
+                      data-tooltip-id="my-tooltip"
+                      data-tooltip-content={user?.displayName}
+                      data-tooltip-place="left"
+                    >
+                      <img
+                        alt="/"
+                        referrerPolicy="no-referrer"
+                        src={user?.photoURL}
+                      />
+                    </div>
                   </div>
                 </div>
                 <ul
@@ -85,16 +85,10 @@ const Navbar = () => {
                   className="menu menu-sm dropdown-content bg-base-100 rounded-box z-[1] mt-3 w-52 p-2 shadow"
                 >
                   <li>
-                    <a className="justify-between">
-                      Profile
-                      <span className="badge">New</span>
-                    </a>
+                    <Link>Add Volunteer need Post</Link>
                   </li>
                   <li>
-                    <a>Settings</a>
-                  </li>
-                  <li>
-                    <a>Logout</a>
+                    <Link>Manage My Posts</Link>
                   </li>
                 </ul>
               </div>
@@ -117,6 +111,7 @@ const Navbar = () => {
           {/* Login and Register btn */}
         </div>
       </div>
+      <Tooltip id="my-tooltip" />
     </div>
   );
 };
