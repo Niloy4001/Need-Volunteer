@@ -55,11 +55,11 @@ const Navbar = () => {
         </div>
         <div className="navbar-end gap-1">
           {/* Login and Register btn */}
-          {/* <a className="btn btn-sm">Login</a>
-          <a className="btn btn-sm">Register</a> */}
+          <Link to={"/login"} className="btn btn-sm">Login</Link>
+          <Link to={"/register"} className="btn btn-sm">Register</Link>
 
           {/* Avatar */}
-          <div className="dropdown dropdown-end">
+          {/* <div className="dropdown dropdown-end">
             <div
               tabIndex={0}
               role="button"
@@ -90,7 +90,7 @@ const Navbar = () => {
               </li>
             </ul>
           </div>
-          <Link><button className="btn btn-sm">Logout</button></Link>
+          <Link><button className="btn btn-sm">Logout</button></Link> */}
         </div>
       </div>
     </div>
