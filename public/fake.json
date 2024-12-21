@@ -1,0 +1,107 @@
+[
+    {
+      "thumbnail": "https://via.placeholder.com/150",
+      "postTitle": "Health Camp for Underprivileged",
+      "description": "Join us to organize a health camp providing free check-ups and medicines to underprivileged communities.",
+      "category": "Healthcare",
+      "location": "Dhaka, Bangladesh",
+      "volunteersNeeded": 20,
+      "deadline": "2024-12-31",
+      "organizer": {
+        "name": "Health for All",
+        "email": "info@healthforall.org"
+      }
+    },
+    {
+      "thumbnail": "https://via.placeholder.com/150",
+      "postTitle": "Literacy Drive for Rural Children",
+      "description": "We are conducting a literacy program for children in rural areas to promote education.",
+      "category": "Education",
+      "location": "Chattogram, Bangladesh",
+      "volunteersNeeded": 15,
+      "deadline": "2024-12-25",
+      "organizer": {
+        "name": "Learn & Grow Foundation",
+        "email": "contact@learnandgrow.org"
+      }
+    },
+    {
+      "thumbnail": "https://via.placeholder.com/150",
+      "postTitle": "Clean the Beach Initiative",
+      "description": "Help us clean and preserve the beauty of Cox's Bazar beach.",
+      "category": "Social Service",
+      "location": "Cox's Bazar, Bangladesh",
+      "volunteersNeeded": 30,
+      "deadline": "2024-12-29",
+      "organizer": {
+        "name": "Eco Warriors",
+        "email": "volunteer@ecowarriors.org"
+      }
+    },
+    {
+      "thumbnail": "https://via.placeholder.com/150",
+      "postTitle": "Animal Shelter Assistance",
+      "description": "Assist in feeding, cleaning, and caring for animals at our local shelter.",
+      "category": "Animal Welfare",
+      "location": "Sylhet, Bangladesh",
+      "volunteersNeeded": 10,
+      "deadline": "2024-12-20",
+      "organizer": {
+        "name": "Care for Paws",
+        "email": "help@careforpaws.org"
+      }
+    },
+    {
+      "thumbnail": "https://via.placeholder.com/150",
+      "postTitle": "Food Distribution Drive",
+      "description": "Distribute food packages to homeless people in the city.",
+      "category": "Social Service",
+      "location": "Rajshahi, Bangladesh",
+      "volunteersNeeded": 25,
+      "deadline": "2024-12-22",
+      "organizer": {
+        "name": "Hunger Free Society",
+        "email": "support@hungerfree.org"
+      }
+    },
+    {
+      "thumbnail": "https://via.placeholder.com/150",
+      "postTitle": "Tree Plantation Campaign",
+      "description": "Join us in planting trees to create a greener environment.",
+      "category": "Social Service",
+      "location": "Khulna, Bangladesh",
+      "volunteersNeeded": 50,
+      "deadline": "2024-12-28",
+      "organizer": {
+        "name": "Green Earth",
+        "email": "info@greenearth.org"
+      }
+    },
+    {
+      "thumbnail": "https://via.placeholder.com/150",
+      "postTitle": "Free Tutoring for Street Kids",
+      "description": "Volunteer as a tutor to teach basic subjects to street children.",
+      "category": "Education",
+      "location": "Barishal, Bangladesh",
+      "volunteersNeeded": 12,
+      "deadline": "2024-12-30",
+      "organizer": {
+        "name": "Street Education Program",
+        "email": "teach@streetedu.org"
+      }
+    },
+    {
+      "thumbnail": "https://via.placeholder.com/150",
+      "postTitle": "Blood Donation Camp",
+      "description": "Support a blood donation camp to save lives by volunteering for registration and logistics.",
+      "category": "Healthcare",
+      "location": "Dhaka, Bangladesh",
+      "volunteersNeeded": 18,
+      "deadline": "2024-12-27",
+      "organizer": {
+        "name": "Blood Donors Alliance",
+        "email": "connect@blooddonors.org"
+      }
+    }
+  ]
+  
