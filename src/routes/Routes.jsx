@@ -9,6 +9,7 @@ import DetailsPost from "../pages/DetailsPost";
 import BeAVolunteer from "../pages/BeAVolunteer";
 import PrivateRoute from "./PrivateRoute";
 import ManageMyPost from "../pages/ManageMyPost";
+import UpdateMyNeedPost from "../pages/UpdateMyNeedPost";
 
 const router = createBrowserRouter([
   {
@@ -44,6 +45,16 @@ const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <DetailsPost></DetailsPost>
+          </PrivateRoute>
+        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:4000/post/${params.id}`),
+      },
+      {
+        path: `/updatePost/:id`,
+        element: (
+          <PrivateRoute>
+            <UpdateMyNeedPost></UpdateMyNeedPost>
           </PrivateRoute>
         ),
         loader: ({ params }) =>

@@ -3,6 +3,7 @@ import { AuthContext } from "../context/AuthProvider";
 import { MdDeleteForever, MdEdit } from "react-icons/md";
 import axios from "axios";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 const MyVolunteerNeedPost = () => {
   const { user } = useContext(AuthContext);
@@ -97,9 +98,9 @@ const MyVolunteerNeedPost = () => {
                     >
                       <MdDeleteForever />
                     </button>
-                    <button className="btn btn-ghost btn-xs text-xl hover:text-blue-700">
+                    <Link to={`/updatePost/${post._id}`} className="btn btn-ghost btn-xs text-xl hover:text-blue-700">
                       <MdEdit />
-                    </button>
+                    </Link>
                   </th>
                 </tr>
               ))}
