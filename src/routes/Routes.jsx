@@ -8,6 +8,7 @@ import AddPost from "../pages/AddPost";
 import DetailsPost from "../pages/DetailsPost";
 import BeAVolunteer from "../pages/BeAVolunteer";
 import PrivateRoute from "./PrivateRoute";
+import ManageMyPost from "../pages/ManageMyPost";
 
 const router = createBrowserRouter([
   {
@@ -27,6 +28,14 @@ const router = createBrowserRouter([
         element: (
           <PrivateRoute>
             <AddPost></AddPost>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/manageMyPost",
+        element: (
+          <PrivateRoute>
+            <ManageMyPost></ManageMyPost>
           </PrivateRoute>
         ),
       },

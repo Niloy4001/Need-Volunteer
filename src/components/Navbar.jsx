@@ -88,7 +88,7 @@ const Navbar = () => {
                     <Link to={"addPost"}>Add Volunteer need Post</Link>
                   </li>
                   <li>
-                    <Link>Manage My Posts</Link>
+                    <Link to={"/manageMyPost"}>Manage My Posts</Link>
                   </li>
                 </ul>
               </div>
