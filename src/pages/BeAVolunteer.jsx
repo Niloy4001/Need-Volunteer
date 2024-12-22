@@ -2,6 +2,8 @@ import React, { useContext } from "react";
 import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../context/AuthProvider";
 import DatePicker from "react-datepicker";
+import axios from "axios";
+import Swal from "sweetalert2";
 
 const BeAVolunteer = () => {
   const { user } = useContext(AuthContext);
@@ -33,6 +35,20 @@ const BeAVolunteer = () => {
     newObj.postId = _id
     newObj.suggestion = suggestion
     newObj.volunteer = {name:volunteerName, email:volunteerEmail}
+
+
+    axios
+    .post("http://localhost:4000/addVolunteer", newObj)
+    .then(function (response) {
+      Swal.fire({
+        title: "Request Submitted",
+        icon: "success",
+      });
+      e.target.reset();
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
 
     console.log(newObj);
     

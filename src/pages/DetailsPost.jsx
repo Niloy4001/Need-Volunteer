@@ -14,7 +14,7 @@ const DetailsPost = () => {
     deadline,
     organizer,
   } = post || {};
-//   console.log(post);
+  //   console.log(post);
 
   return (
     <div className="w-[90%] mx-auto py-7 md:py-14">
@@ -35,9 +35,11 @@ const DetailsPost = () => {
           <p>{organizer.name} </p>
           <p>{organizer.email} </p>
           <div className="card-actions ">
-            <button className="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition">
-              <Link to={`/beAVolunteer/${_id}`}>Be a Voluenteer</Link>
-            </button>
+            <Link to={`/beAVolunteer/${_id}`}>
+              <button className="w-full bg-blue-500 text-white btn hover:bg-blue-600 transition">
+                Be a Voluenteer
+              </button>
+            </Link>
           </div>
         </div>
       </div>
