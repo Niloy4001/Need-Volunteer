@@ -34,7 +34,7 @@ const VolunteerNeedsNow = () => {
                 <div><span className="loading loading-ring loading-lg"></span></div>
             }
         </div>
-        <div>
+        <div className='flex justify-center py-6'>
             <Link to={"/allPost"} className='btn'><button>See All</button></Link>
         </div>
     </div>

@@ -3,6 +3,8 @@ import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { AuthContext } from "../context/AuthProvider";
 import { format } from "date-fns";
+import axios from "axios";
+import Swal from "sweetalert2";
 
 const AddPost = () => {
   const { user } = useContext(AuthContext);
@@ -12,14 +14,26 @@ const AddPost = () => {
     e.preventDefault();
     const formData = new FormData(e.target);
     // console.log(formData);
-    const obj = Object.fromEntries(formData.entries())
-    obj.deadline = format(new Date(selectedDate), 'P')
+    const obj = Object.fromEntries(formData.entries());
+    obj.deadline = format(new Date(selectedDate), "P");
     obj.organizer = {
-        name: user?.displayName,
-        email: user?.email,
-    }
-    console.log(obj);
-    
+      name: user?.displayName,
+      email: user?.email,
+    };
+   
+
+    axios
+      .post("http://localhost:4000/addPost", obj)
+      .then(function (response) {
+        Swal.fire({
+          title: "Post Added Successfully",
+          icon: "success",
+        });
+        e.target.reset();
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
   };
   return (
     <div className="py-7 md:py-14">
@@ -49,7 +63,7 @@ const AddPost = () => {
             name="postTitle"
             placeholder="Enter post title"
             className="w-full border border-gray-300 rounded px-3 py-2"
-          required
+            required
           />
         </div>
 
