@@ -3,11 +3,14 @@ import { Link } from "react-router-dom";
 
 const AllPost = () => {
   const [posts, setPosts] = useState([]);
+  const [search, setSearch] = useState('');
+  console.log(search);
+  
   useEffect(() => {
-    fetch("http://localhost:4000/allPost")
+    fetch(`http://localhost:4000/allPost?search=${search}`)
       .then((res) => res.json())
       .then((data) => setPosts(data));
-  }, []);
+  }, [search]);
   return (
     <div className="py-8 md:py-14">
       <div className="w-[90%] mx-auto">
@@ -15,7 +18,7 @@ const AllPost = () => {
         {/* search functionality */}
         <div>
           <label className="input input-bordered flex items-center gap-2">
-            <input type="text" className="grow" placeholder="Search" />
+            <input onChange={(e)=> setSearch(e.target.value)} type="text" className="grow" placeholder="Search" />
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 16 16"
@@ -32,7 +35,7 @@ const AllPost = () => {
         </div>
         {/* all post */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3">
-          {posts.length > 0 ? (
+          {posts.length > 0 && 
             posts.map((post) => (
               <div
                 key={post._id}
@@ -65,11 +68,14 @@ const AllPost = () => {
                 </div>
               </div>
             ))
-          ) : (
-            <div>
-              <span className="loading loading-ring loading-lg"></span>
-            </div>
-          )}
+           
+          // :
+          //  (
+          //   <div>
+          //     <span className="loading loading-ring loading-lg"></span>
+          //   </div>
+          // )
+          }
         </div>
       </div>
     </div>
