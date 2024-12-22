@@ -6,6 +6,7 @@ import Home from "../pages/Home";
 import AllPost from "../pages/AllPost";
 import AddPost from "../pages/AddPost";
 import DetailsPost from "../pages/DetailsPost";
+import BeAVolunteer from "../pages/BeAVolunteer";
 
 const router = createBrowserRouter([
     {
@@ -27,6 +28,11 @@ const router = createBrowserRouter([
         {
             path:`/detailsPost/:id`,
             element: <DetailsPost></DetailsPost>,
+            loader: ({params})=> fetch(`http://localhost:4000/post/${params.id}`)
+        },
+        {
+            path:`/beAVolunteer/:id`,
+            element: <BeAVolunteer></BeAVolunteer>,
             loader: ({params})=> fetch(`http://localhost:4000/post/${params.id}`)
         },
         {

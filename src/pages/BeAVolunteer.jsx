@@ -1,45 +1,48 @@
-import React, { useContext, useState } from "react";
-import DatePicker from "react-datepicker";
-import "react-datepicker/dist/react-datepicker.css";
+import React, { useContext } from "react";
+import { useLoaderData } from "react-router-dom";
 import { AuthContext } from "../context/AuthProvider";
-import { format } from "date-fns";
-import axios from "axios";
-import Swal from "sweetalert2";
+import DatePicker from "react-datepicker";
 
-const AddPost = () => {
+const BeAVolunteer = () => {
   const { user } = useContext(AuthContext);
-  const [selectedDate, setSelectedDate] = useState(new Date());
+  const post = useLoaderData();
+  const {
+    _id,
+    thumbnail,
+    postTitle,
+    description,
+    category,
+    location,
+    volunteersNeeded,
+    deadline,
+    organizer,
+    status,
+  } = post || {};
+  //   console.log(post);
 
-  const handleAdd = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    const formData = new FormData(e.target);
-    // console.log(formData);
-    const obj = Object.fromEntries(formData.entries());
-    obj.deadline = format(new Date(selectedDate), "P");
-    obj.organizer = {
-      name: user?.displayName,
-      email: user?.email,
-    };
-    obj.status = "Requested"
-   
+    const form = e.target
+    const volunteerName = e.target.volunteerName.value;
+    const volunteerEmail = e.target.volunteerEmail.value;
+    const suggestion = e.target.suggestion.value;
 
-    axios
-      .post("http://localhost:4000/addPost", obj)
-      .then(function (response) {
-        Swal.fire({
-          title: "Post Added Successfully",
-          icon: "success",
-        });
-        e.target.reset();
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
+    
+    const newObj = {...post}
+    delete newObj._id
+    newObj.postId = _id
+    newObj.suggestion = suggestion
+    newObj.volunteer = {name:volunteerName, email:volunteerEmail}
+
+    console.log(newObj);
+    
+    
   };
+
   return (
     <div className="py-7 md:py-14">
       <form
-        onSubmit={handleAdd}
+        onSubmit={handleSubmit}
         className="max-w-lg mx-auto p-4 border border-gray-200 shadow rounded"
       >
         <h2 className="text-xl font-bold mb-4">Add Volunteer Post</h2>
@@ -52,7 +55,8 @@ const AddPost = () => {
             name="thumbnail"
             placeholder="Enter thumbnail URL"
             className="w-full border border-gray-300 rounded px-3 py-2"
-            required
+            defaultValue={thumbnail}
+            readOnly
           />
         </div>
 
@@ -64,7 +68,8 @@ const AddPost = () => {
             name="postTitle"
             placeholder="Enter post title"
             className="w-full border border-gray-300 rounded px-3 py-2"
-            required
+            readOnly
+            defaultValue={postTitle}
           />
         </div>
 
@@ -75,7 +80,8 @@ const AddPost = () => {
             name="description"
             placeholder="Enter description"
             className="w-full border border-gray-300 rounded px-3 py-2"
-            required
+            readOnly
+            defaultValue={description}
           ></textarea>
         </div>
 
@@ -85,7 +91,8 @@ const AddPost = () => {
           <select
             name="category"
             className="w-full border border-gray-300 rounded px-3 py-2"
-            required
+            readOnly
+            defaultValue={category}
           >
             <option value="">Select a category</option>
             <option value="healthcare">Healthcare</option>
@@ -103,7 +110,8 @@ const AddPost = () => {
             name="location"
             placeholder="Enter location"
             className="w-full border border-gray-300 rounded px-3 py-2"
-            required
+            readOnly
+            defaultValue={location}
           />
         </div>
 
@@ -117,7 +125,8 @@ const AddPost = () => {
             name="volunteersNeeded"
             placeholder="Enter number of volunteers needed"
             className="w-full border border-gray-300 rounded px-3 py-2"
-            required
+            readOnly
+            defaultValue={volunteersNeeded}
           />
         </div>
 
@@ -125,11 +134,12 @@ const AddPost = () => {
         <div className="mb-4">
           <label className="block mb-2 font-medium">Deadline</label>
           <DatePicker
-            selected={selectedDate}
-            onChange={(date) => setSelectedDate(date)}
+            selected={deadline}
+            // onChange={(date) => setSelectedDate(date)}
             className="w-full border border-gray-300 rounded px-3 py-2"
             dateFormat="yyyy-MM-dd"
-            required
+            readOnly
+            defaultValue={deadline}
           />
         </div>
 
@@ -138,7 +148,7 @@ const AddPost = () => {
           <label className="block mb-2 font-medium">Organizer Name</label>
           <input
             type="text"
-            defaultValue={user?.displayName}
+            defaultValue={organizer.name}
             readOnly
             className="w-full border border-gray-300 bg-gray-100 rounded px-3 py-2"
           />
@@ -147,11 +157,42 @@ const AddPost = () => {
           <label className="block mb-2 font-medium">Organizer Email</label>
           <input
             type="email"
+            defaultValue={organizer.email}
+            readOnly
+            className="w-full border border-gray-300 bg-gray-100 rounded px-3 py-2"
+          />
+        </div>
+        {/* Volunteer Name and Email (Read-Only) */}
+        <div className="mb-4">
+          <label className="block mb-2 font-medium">Volunteer Name</label>
+          <input
+            name="volunteerName"
+            type="text"
+            defaultValue={user?.displayName}
+            readOnly
+            className="w-full border border-gray-300 bg-gray-100 rounded px-3 py-2"
+          />
+        </div>
+        <div className="mb-4">
+          <label className="block mb-2 font-medium">Volunteer Email</label>
+          <input
+            name="volunteerEmail"
+            type="email"
             defaultValue={user?.email}
             readOnly
             className="w-full border border-gray-300 bg-gray-100 rounded px-3 py-2"
           />
         </div>
+        {/* Suggestion */}
+        <div className="mb-4">
+          <label className="block mb-2 font-medium">Suggestion</label>
+          <textarea
+            name="suggestion"
+            placeholder="Suggestion"
+            className="w-full border border-gray-300 rounded px-3 py-2"
+          ></textarea>
+        </div>
+        <div>status : {status}</div>
 
         {/* Submit Button */}
         <div>
@@ -159,7 +200,7 @@ const AddPost = () => {
             type="submit"
             className="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition"
           >
-            Add Post
+            Request
           </button>
         </div>
       </form>
@@ -167,4 +208,4 @@ const AddPost = () => {
   );
 };
 
-export default AddPost;
+export default BeAVolunteer;

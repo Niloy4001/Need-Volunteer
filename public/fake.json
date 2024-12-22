@@ -10,7 +10,8 @@
       "organizer": {
         "name": "Health for All",
         "email": "info@healthforall.org"
-      }
+      },
+      "status": "Requested"
     },
     {
       "thumbnail": "https://via.placeholder.com/150",
@@ -23,7 +24,8 @@
       "organizer": {
         "name": "Learn & Grow Foundation",
         "email": "contact@learnandgrow.org"
-      }
+      },
+      "status": "Requested"
     },
     {
       "thumbnail": "https://via.placeholder.com/150",
@@ -36,7 +38,8 @@
       "organizer": {
         "name": "Eco Warriors",
         "email": "volunteer@ecowarriors.org"
-      }
+      },
+      "status": "Requested"
     },
     {
       "thumbnail": "https://via.placeholder.com/150",
@@ -49,7 +52,8 @@
       "organizer": {
         "name": "Care for Paws",
         "email": "help@careforpaws.org"
-      }
+      },
+      "status": "Requested"
     },
     {
       "thumbnail": "https://via.placeholder.com/150",
@@ -62,7 +66,8 @@
       "organizer": {
         "name": "Hunger Free Society",
         "email": "support@hungerfree.org"
-      }
+      },
+      "status": "Requested"
     },
     {
       "thumbnail": "https://via.placeholder.com/150",
@@ -75,7 +80,8 @@
       "organizer": {
         "name": "Green Earth",
         "email": "info@greenearth.org"
-      }
+      },
+      "status": "Requested"
     },
     {
       "thumbnail": "https://via.placeholder.com/150",
@@ -88,7 +94,8 @@
       "organizer": {
         "name": "Street Education Program",
         "email": "teach@streetedu.org"
-      }
+      },
+      "status": "Requested"
     },
     {
       "thumbnail": "https://via.placeholder.com/150",
@@ -101,7 +108,8 @@
       "organizer": {
         "name": "Blood Donors Alliance",
         "email": "connect@blooddonors.org"
-      }
+      },
+      "status": "Requested"
     }
   ]
   
