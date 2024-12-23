@@ -1,7 +1,10 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthProvider";
 import { Tooltip } from "react-tooltip";
+import { FaRegMoon } from "react-icons/fa";
+import { MdOutlineLightMode } from "react-icons/md";
+import getFromLs from "../utility";
 
 const Navbar = () => {
   const links = (
@@ -21,6 +24,30 @@ const Navbar = () => {
   const handleLogOut = () => {
     logOut();
     navigate("/");
+  };
+
+  // implement light dark theme mode
+  const [mode, setMode] = useState(getFromLs);
+
+  useEffect(() => {
+    // if (mode === "light") {
+      // document.getElementById("html").setAttribute('data-theme', mode);
+      document.documentElement.setAttribute('data-theme', mode);
+    // }
+    // if (mode === "dark") {
+    //   document.getElementById("html").setAttribute('data-theme', 'dark');
+    // }
+  }, [mode]);
+
+  const handleMode = () => {
+    if (mode === "light") {
+      localStorage.setItem("theme", "dark");
+      setMode(getFromLs);
+    }
+    if (mode === "dark") {
+      localStorage.setItem("theme", "light");
+      setMode(getFromLs);
+    }
   };
 
   return (
@@ -57,6 +84,12 @@ const Navbar = () => {
           <ul className="menu menu-horizontal px-1">{links}</ul>
         </div>
         <div className="navbar-end gap-1">
+          <div
+            onClick={() => handleMode()}
+            className=" shadow-2xl text-white bg-gradient-to-b from-[#f948b2] to-[#8758f1]  btn btn-sm   rounded-full"
+          >
+            {mode === "light" ? <FaRegMoon /> : <MdOutlineLightMode />}
+          </div>
           {user ? (
             <>
               {/* Avatar */}
