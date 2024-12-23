@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { Helmet } from "react-helmet";
 import { Link } from "react-router-dom";
 
 const AllPost = () => {
@@ -13,6 +14,9 @@ const AllPost = () => {
   }, [search]);
   return (
     <div className="py-8 md:py-14">
+      <Helmet>
+        <title>All Post | NEED VOLUNTEER</title>
+      </Helmet>
       <div className="w-[90%] mx-auto">
         <h1 className="text-center">All Post</h1>
         {/* search functionality */}

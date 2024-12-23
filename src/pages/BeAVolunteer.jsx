@@ -4,6 +4,7 @@ import { AuthContext } from "../context/AuthProvider";
 import DatePicker from "react-datepicker";
 import axios from "axios";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet";
 
 const BeAVolunteer = () => {
   const { user } = useContext(AuthContext);
@@ -57,6 +58,9 @@ const BeAVolunteer = () => {
 
   return (
     <div className="py-7 md:py-14">
+      <Helmet>
+        <title>Be a volunteer | NEED VOLUNTEER</title>
+      </Helmet>
       <form
         onSubmit={handleSubmit}
         className="max-w-lg mx-auto p-4 border border-gray-200 shadow rounded"

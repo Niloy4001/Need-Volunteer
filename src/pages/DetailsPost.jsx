@@ -1,4 +1,5 @@
 import React from "react";
+import { Helmet } from "react-helmet";
 import { Link, useLoaderData } from "react-router-dom";
 
 const DetailsPost = () => {
@@ -18,6 +19,9 @@ const DetailsPost = () => {
 
   return (
     <div className="w-[90%] mx-auto py-7 md:py-14">
+      <Helmet>
+        <title>Details{_id} | NEED VOLUNTEER</title>
+      </Helmet>
       <div className="card lg:card-side bg-base-100 shadow-xl">
         <figure>
           <img

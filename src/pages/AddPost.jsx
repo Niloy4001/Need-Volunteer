@@ -5,6 +5,7 @@ import { AuthContext } from "../context/AuthProvider";
 import { format } from "date-fns";
 import axios from "axios";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet";
 
 const AddPost = () => {
   const { user } = useContext(AuthContext);
@@ -38,6 +39,9 @@ const AddPost = () => {
   };
   return (
     <div className="py-7 md:py-14">
+      <Helmet>
+        <title>Add Post | NEED VOLUNTEER</title>
+      </Helmet>
       <form
         onSubmit={handleAdd}
         className="max-w-lg mx-auto p-4 border border-gray-200 shadow rounded"
