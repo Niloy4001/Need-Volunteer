@@ -3,7 +3,9 @@ import { Helmet } from "react-helmet";
 import { Link, useLoaderData } from "react-router-dom";
 
 const DetailsPost = () => {
-  const post = useLoaderData();
+  const {data} = useLoaderData();
+  // console.log(data);
+  
   const {
     _id,
     thumbnail,
@@ -14,7 +16,7 @@ const DetailsPost = () => {
     volunteersNeeded,
     deadline,
     organizer,
-  } = post || {};
+  } = data || {};
   //   console.log(post);
 
   return (

@@ -10,6 +10,8 @@ import BeAVolunteer from "../pages/BeAVolunteer";
 import PrivateRoute from "./PrivateRoute";
 import ManageMyPost from "../pages/ManageMyPost";
 import UpdateMyNeedPost from "../pages/UpdateMyNeedPost";
+import Page404 from "../pages/Page404";
+import axios from "axios";
 
 const router = createBrowserRouter([
   {
@@ -48,7 +50,9 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:4000/post/${params.id}`),
+          axios.get(`http://localhost:4000/post/${params.id}`, {
+            withCredentials: true,
+          }),
       },
       {
         path: `/updatePost/:id`,
@@ -74,7 +78,15 @@ const router = createBrowserRouter([
         path: "/register",
         element: <Register></Register>,
       },
+      {
+        path: "*",
+        element: <Page404></Page404>,
+      },
     ],
+  },
+  {
+    path: "*",
+    element: <Page404></Page404>,
   },
 ]);
 

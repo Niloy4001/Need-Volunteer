@@ -10,9 +10,12 @@ const MyVolunteerRequestPost = () => {
   // console.log(posts);
 
   useEffect(() => {
-    fetch(`http://localhost:4000/myRequestedPost?email=${user.email}`)
-      .then((res) => res.json())
-      .then((data) => setPosts(data));
+    // fetch(`http://localhost:4000/myRequestedPost?email=${user.email}`)
+    //   .then((res) => res.json())
+    //   .then((data) => setPosts(data));
+
+      axios.get(`http://localhost:4000/myRequestedPost?email=${user.email}`,{withCredentials:true})
+      .then(res => setPosts(res.data))
   }, []);
 
 
