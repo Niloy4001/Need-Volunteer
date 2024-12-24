@@ -37,17 +37,17 @@ const UpdateMyNeedPost = () => {
     console.log(obj);
 
     axios
-    .put(`http://localhost:4000/update/${_id}`, obj)
-    .then(function (response) {
-      Swal.fire({
-        title: "Your post Updated",
-        icon: "success",
+      .put(`http://localhost:4000/update/${_id}`, obj)
+      .then(function (response) {
+        Swal.fire({
+          title: "Your post Updated",
+          icon: "success",
+        });
+        e.target.reset();
+      })
+      .catch(function (error) {
+        console.log(error);
       });
-      e.target.reset();
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
 
     // console.log(newObj);
   };

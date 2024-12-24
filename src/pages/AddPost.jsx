@@ -25,7 +25,7 @@ const AddPost = () => {
    
 
     axios
-      .post("http://localhost:4000/addPost", obj)
+      .post(`http://localhost:4000/addPost?email=${user.email}`, obj,{withCredentials:true})
       .then(function (response) {
         Swal.fire({
           title: "Post Added Successfully",

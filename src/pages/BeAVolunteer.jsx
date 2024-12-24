@@ -8,7 +8,9 @@ import { Helmet } from "react-helmet";
 
 const BeAVolunteer = () => {
   const { user } = useContext(AuthContext);
-  const post = useLoaderData();
+const {data} = useLoaderData();
+
+
   const {
     _id,
     thumbnail,
@@ -20,8 +22,8 @@ const BeAVolunteer = () => {
     deadline,
     organizer,
     status,
-  } = post || {};
-  //   console.log(post);
+  } = data || {};
+    // console.log(post);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -31,7 +33,7 @@ const BeAVolunteer = () => {
     const suggestion = e.target.suggestion.value;
 
     
-    const newObj = {...post}
+    const newObj = {...data}
     delete newObj._id
     newObj.postId = _id
     newObj.suggestion = suggestion

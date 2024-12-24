@@ -11,9 +11,13 @@ const MyVolunteerNeedPost = () => {
   //   console.log(posts);
 
   useEffect(() => {
-    fetch(`http://localhost:4000/myNeedPost?email=${user.email}`)
-      .then((res) => res.json())
-      .then((data) => setPosts(data));
+    // fetch(`http://localhost:4000/myNeedPost?email=${user.email}`)
+    //   .then((res) => res.json())
+    //   .then((data) => setPosts(data));
+
+    axios.get(`http://localhost:4000/myNeedPost?email=${user.email}`,{withCredentials:true})
+      .then(res => setPosts(res.data))
+
   }, []);
 
   const handleDelete = (id) => {

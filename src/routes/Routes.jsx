@@ -13,6 +13,8 @@ import UpdateMyNeedPost from "../pages/UpdateMyNeedPost";
 import Page404 from "../pages/Page404";
 import axios from "axios";
 
+
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -49,10 +51,10 @@ const router = createBrowserRouter([
             <DetailsPost></DetailsPost>
           </PrivateRoute>
         ),
-        loader: ({ params }) =>
-          axios.get(`http://localhost:4000/post/${params.id}`, {
-            withCredentials: true,
-          }),
+        loader: async ({ params }) =>
+          await axios.get(
+            `http://localhost:4000/post/${params.id}`
+          ),
       },
       {
         path: `/updatePost/:id`,
@@ -64,11 +66,16 @@ const router = createBrowserRouter([
         loader: ({ params }) =>
           fetch(`http://localhost:4000/post/${params.id}`),
       },
+      // {
+      //   path: `/beAVolunteer/:id`,
+      //   element: <BeAVolunteer></BeAVolunteer>,
+      
+      // },
       {
         path: `/beAVolunteer/:id`,
         element: <BeAVolunteer></BeAVolunteer>,
         loader: ({ params }) =>
-          fetch(`http://localhost:4000/post/${params.id}`),
+          axios(`http://localhost:4000/post/${params.id}`,{withCredentials:true}),
       },
       {
         path: "/login",

@@ -2,9 +2,11 @@ import React from "react";
 import { Helmet } from "react-helmet";
 import { Link, useLoaderData } from "react-router-dom";
 
+
 const DetailsPost = () => {
   const {data} = useLoaderData();
   // console.log(data);
+  // console.log(getUser);
   
   const {
     _id,
