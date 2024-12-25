@@ -9,7 +9,9 @@ import { Helmet } from "react-helmet";
 
 const UpdateMyNeedPost = () => {
   const { user } = useContext(AuthContext);
-  const post = useLoaderData();
+  const {data} = useLoaderData();
+  // console.log(post);
+  
   const {
     _id,
     thumbnail,
@@ -21,7 +23,7 @@ const UpdateMyNeedPost = () => {
     deadline,
     organizer,
     status,
-  } = post || {};
+  } = data || {};
   // (postTitle);
 
   const [selectedDate, setSelectedDate] = useState(deadline);
@@ -33,11 +35,13 @@ const UpdateMyNeedPost = () => {
     const obj = Object.fromEntries(formData.entries());
     obj.deadline = format(new Date(selectedDate), "P");
     obj.status = status;
-    obj.organizer = { name: user.displayName, email: user.email };
-    (obj);
+    obj.organizer = { name: organizer.name, email: organizer.email };
+    
+    // console.log(obj);
+    
 
     axios
-      .put(`https://need-volunteer-server.vercel.app/update/${_id}`, obj)
+      .put(`http://localhost:4000/update/${_id}`, obj)
       .then(function (response) {
         Swal.fire({
           title: "Your post Updated",
@@ -158,7 +162,7 @@ const UpdateMyNeedPost = () => {
           <label className="block mb-2 font-medium">Organizer Name</label>
           <input
             type="text"
-            defaultValue={user.displayName}
+            defaultValue={organizer.name}
             readOnly
             className="w-full border border-gray-300 bg-gray-100 rounded px-3 py-2"
           />
@@ -167,7 +171,7 @@ const UpdateMyNeedPost = () => {
           <label className="block mb-2 font-medium">Organizer Email</label>
           <input
             type="email"
-            defaultValue={user.email}
+            defaultValue={organizer.email}
             readOnly
             className="w-full border border-gray-300 bg-gray-100 rounded px-3 py-2"
           />

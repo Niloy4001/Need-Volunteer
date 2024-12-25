@@ -25,7 +25,7 @@ const AddPost = () => {
    
 
     axios
-      .post(`https://need-volunteer-server.vercel.app/addPost?email=${user.email}`, obj,{withCredentials:true})
+      .post(`http://localhost:4000/addPost?email=${user.email}`, obj,{withCredentials:true})
       .then(function (response) {
         Swal.fire({
           title: "Post Added Successfully",
