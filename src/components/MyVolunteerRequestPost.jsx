@@ -10,12 +10,12 @@ const MyVolunteerRequestPost = () => {
   // (posts);
 
   useEffect(() => {
-    // fetch(`http://localhost:4000/myRequestedPost?email=${user.email}`)
+    // fetch(`https://need-volunteer-server.vercel.app/myRequestedPost?email=${user.email}`)
     //   .then((res) => res.json())
     //   .then((data) => setPosts(data));
 
-      axios.get(`http://localhost:4000/myRequestedPost?email=${user.email}`,{withCredentials:true})
-      // axios.get(`http://localhost:4000/myRequestedPost?email=introvertpro2@gmail.com`,{withCredentials:true})
+      axios.get(`https://need-volunteer-server.vercel.app/myRequestedPost?email=${user.email}`,{withCredentials:true})
+      // axios.get(`https://need-volunteer-server.vercel.app/myRequestedPost?email=introvertpro2@gmail.com`,{withCredentials:true})
       .then(res => setPosts(res.data))
   }, []);
 
@@ -33,7 +33,7 @@ const MyVolunteerRequestPost = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .delete(`http://localhost:4000/deleteRequestedPost/${id}`)
+          .delete(`https://need-volunteer-server.vercel.app/deleteRequestedPost/${id}`)
           .then(function (response) {
             if (response.data.deletedCount === 1) {
               Swal.fire({

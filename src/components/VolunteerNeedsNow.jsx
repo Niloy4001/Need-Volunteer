@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const VolunteerNeedsNow = () => {
   const [posts, setPosts] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:4000/needVolunteerPost")
+    fetch("https://need-volunteer-server.vercel.app/needVolunteerPost")
       .then((res) => res.json())
       .then((data) => setPosts(data));
   }, []);

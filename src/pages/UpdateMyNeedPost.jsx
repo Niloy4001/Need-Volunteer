@@ -41,7 +41,7 @@ const UpdateMyNeedPost = () => {
     
 
     axios
-      .put(`http://localhost:4000/update/${_id}`, obj)
+      .put(`https://need-volunteer-server.vercel.app/update/${_id}`, obj)
       .then(function (response) {
         Swal.fire({
           title: "Your post Updated",

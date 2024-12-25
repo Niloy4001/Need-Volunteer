@@ -53,7 +53,7 @@ const AuthProvider = ({ children }) => {
       if (currentUser?.email) {
         setUser(currentUser);
         await axios.post(
-          "http://localhost:4000/jwt",
+          "https://need-volunteer-server.vercel.app/jwt",
           { email: currentUser?.email },
           { withCredentials: true }
         );
@@ -61,7 +61,7 @@ const AuthProvider = ({ children }) => {
       } else {
         setUser(null);
         await axios.get(
-          "http://localhost:4000/logout",
+          "https://need-volunteer-server.vercel.app/logout",
           { withCredentials: true }
         );
       }

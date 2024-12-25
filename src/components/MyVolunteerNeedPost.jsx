@@ -11,11 +11,11 @@ const MyVolunteerNeedPost = () => {
   //   (posts);
 
   useEffect(() => {
-    // fetch(`http://localhost:4000/myNeedPost?email=${user.email}`)
+    // fetch(`https://need-volunteer-server.vercel.app/myNeedPost?email=${user.email}`)
     //   .then((res) => res.json())
     //   .then((data) => setPosts(data));
 
-    axios.get(`http://localhost:4000/myNeedPost?email=${user.email}`,{withCredentials:true})
+    axios.get(`https://need-volunteer-server.vercel.app/myNeedPost?email=${user.email}`,{withCredentials:true})
       .then(res => setPosts(res.data))
 
   }, []);
@@ -32,7 +32,7 @@ const MyVolunteerNeedPost = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .delete(`http://localhost:4000/delete/${id}`)
+          .delete(`https://need-volunteer-server.vercel.app/delete/${id}`)
           .then(function (response) {
             if (response.data.deletedCount === 1) {
               Swal.fire({

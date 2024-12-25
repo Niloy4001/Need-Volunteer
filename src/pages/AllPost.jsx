@@ -12,7 +12,7 @@ const AllPost = () => {
   (search);
 
   useEffect(() => {
-    fetch(`http://localhost:4000/allPost?search=${search}`)
+    fetch(`https://need-volunteer-server.vercel.app/allPost?search=${search}`)
       .then((res) => res.json())
       .then((data) => setPosts(data));
   }, [search]);
