@@ -1,7 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthProvider";
-import { Tooltip } from "react-tooltip";
 import { FaRegMoon } from "react-icons/fa";
 import { MdOutlineLightMode } from "react-icons/md";
 import getFromLs from "../utility";
@@ -10,10 +9,54 @@ const Navbar = () => {
   const links = (
     <>
       <li>
-        <NavLink to={"/"}>Home</NavLink>
+        <NavLink
+          to="/"
+          className={({ isActive }) =>
+            isActive ? "active-class" : "default-class"
+          }
+        >
+          Home
+        </NavLink>
       </li>
       <li>
-        <NavLink to={"/allPost"}>All volunteer Need posts</NavLink>
+        <NavLink
+          to="/allPost"
+          className={({ isActive }) =>
+            isActive ? "active-class" : "default-class"
+          }
+        >
+          All Volunteer Need Posts
+        </NavLink>
+      </li>
+      <li className="dropdown dropdown-bottom">
+        <div tabIndex={0} role="button" className=" font-normal btn-sm m-1">
+          My Profile
+        </div>
+        <ul
+          tabIndex={0}
+          className="dropdown-content menu bg-base-100 rounded-box z-[10] w-52 p-2 shadow"
+        >
+          <li>
+            <NavLink
+              to="/addPost"
+              className={({ isActive }) =>
+                isActive ? "active-class" : "default-class"
+              }
+            >
+              Add Volunteer need Post
+            </NavLink>
+          </li>
+          <li>
+            <NavLink
+              to="/manageMyPost"
+              className={({ isActive }) =>
+                isActive ? "active-class" : "default-class"
+              }
+            >
+              Manage My Posts
+            </NavLink>
+          </li>
+        </ul>
       </li>
     </>
   );
@@ -31,8 +74,8 @@ const Navbar = () => {
 
   useEffect(() => {
     // if (mode === "light") {
-      // document.getElementById("html").setAttribute('data-theme', mode);
-      document.documentElement.setAttribute('data-theme', mode);
+    // document.getElementById("html").setAttribute('data-theme', mode);
+    document.documentElement.setAttribute("data-theme", mode);
     // }
     // if (mode === "dark") {
     //   document.getElementById("html").setAttribute('data-theme', 'dark');
@@ -52,7 +95,14 @@ const Navbar = () => {
 
   return (
     <div>
-      <div className="md:hidden"><Link to={"/"} className="btn btn-ghost text-xl md:text-2xl lg:text-3xl font-bold text-center w-full">NEED VOLUNTEER</Link></div>
+      <div className="md:hidden">
+        <Link
+          to={"/"}
+          className="btn btn-ghost text-xl md:text-2xl lg:text-3xl font-bold text-center w-full"
+        >
+          NEED VOLUNTEER
+        </Link>
+      </div>
       <div className="navbar w-[90%] mx-auto py-0 md:py-6 ">
         <div className="navbar-start">
           <div className="dropdown">
@@ -79,7 +129,12 @@ const Navbar = () => {
               {links}
             </ul>
           </div>
-          <Link to={"/"} className="btn btn-ghost text-xl md:text-2xl lg:text-3xl font-bold hidden md:flex">NEED VOLUNTEER</Link>
+          <Link
+            to={"/"}
+            className="btn btn-ghost text-xl md:text-2xl lg:text-3xl font-bold hidden md:flex"
+          >
+            NEED VOLUNTEER
+          </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{links}</ul>
@@ -94,24 +149,18 @@ const Navbar = () => {
           {user ? (
             <>
               {/* Avatar */}
-              <div className="dropdown dropdown-end">
+              <div className="dropdown dropdown-end tooltip tooltip-top dropdown-hover" data-tip={user?.displayName}>
                 <div
                   tabIndex={0}
                   role="button"
-                  className="btn btn-ghost btn-circle avatar"
+                  className="btn btn-ghost btn-circle avatar "
                 >
                   <div className="w-10 rounded-full">
-                    <div
-                      data-tooltip-id="my-tooltip"
-                      data-tooltip-content={user?.displayName}
-                      data-tooltip-place="left"
-                    >
                       <img
                         alt="/"
                         referrerPolicy="no-referrer"
                         src={user?.photoURL}
                       />
-                    </div>
                   </div>
                 </div>
                 <ul
@@ -119,17 +168,18 @@ const Navbar = () => {
                   className="menu menu-sm dropdown-content bg-base-100 rounded-box z-10 mt-3 w-52 p-2 shadow"
                 >
                   <li>
-                    <Link to={"addPost"}>Add Volunteer need Post</Link>
+                    <p>{user?.displayName}</p>
                   </li>
                   <li>
-                    <Link to={"/manageMyPost"}>Manage My Posts</Link>
+                  <button onClick={handleLogOut} className="btn btn-sm">
+                Logout
+              </button>
                   </li>
                 </ul>
               </div>
-
-              <button onClick={handleLogOut} className="btn btn-sm">
+              {/* <button onClick={handleLogOut} className="btn btn-sm">
                 Logout
-              </button>
+              </button> */}
             </>
           ) : (
             <>
@@ -145,7 +195,7 @@ const Navbar = () => {
           {/* Login and Register btn */}
         </div>
       </div>
-      <Tooltip id="my-tooltip" />
+     
     </div>
   );
 };

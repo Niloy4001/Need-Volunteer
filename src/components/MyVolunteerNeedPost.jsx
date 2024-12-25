@@ -49,7 +49,6 @@ const MyVolunteerNeedPost = () => {
             (error);
           });
 
-        // ("dele");
       }
     });
   };
@@ -114,7 +113,7 @@ const MyVolunteerNeedPost = () => {
               ))}
             {posts.length < 1 && (
               <tr>
-                <td className="col-span-4 text-center font-medium text-lg md:text-2xl lg:text-3xl">
+                <td className="col-span-4 text-center font-medium text-base md:text-xl lg:text-2xl">
                   No post Added by you
                 </td>
               </tr>

@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import DatePicker from "react-datepicker";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthProvider";
 import axios from "axios";
 import Swal from "sweetalert2";
@@ -10,6 +10,7 @@ import { Helmet } from "react-helmet";
 const UpdateMyNeedPost = () => {
   const { user } = useContext(AuthContext);
   const {data} = useLoaderData();
+  const navigate = useNavigate()
   // console.log(post);
   
   const {
@@ -48,6 +49,7 @@ const UpdateMyNeedPost = () => {
           icon: "success",
           confirmButtonColor:"#2B3440"
         });
+        navigate('/manageMyPost')
         e.target.reset();
       })
       .catch(function (error) {

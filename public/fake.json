@@ -10,8 +10,7 @@
     "organizer": {
       "name": "Health for All",
       "email": "info@healthforall.org"
-    },
-    "status": "Requested"
+    }
   },
   {
     "thumbnail": "https://i.ibb.co.com/7JbM8Hn/Literacy-Drive-for-Rural-Children.jpg",
@@ -24,8 +23,7 @@
     "organizer": {
       "name": "Learn & Grow Foundation",
       "email": "contact@learnandgrow.org"
-    },
-    "status": "Requested"
+    }
   },
   {
     "thumbnail": "https://i.ibb.co.com/L1nZnsw/Clean-the-Beach-Initiative.jpg",
@@ -38,8 +36,7 @@
     "organizer": {
       "name": "Eco Warriors",
       "email": "volunteer@ecowarriors.org"
-    },
-    "status": "Requested"
+    }
   },
   {
     "thumbnail": "https://i.ibb.co.com/DYsJ3j9/Animal-Shelter-Assistance.jpg",
@@ -52,8 +49,7 @@
     "organizer": {
       "name": "Care for Paws",
       "email": "help@careforpaws.org"
-    },
-    "status": "Requested"
+    }
   },
   {
     "thumbnail": "https://i.ibb.co.com/XX1yDv0/Food-Distribution-Drive.jpg",
@@ -66,8 +62,7 @@
     "organizer": {
       "name": "Hunger Free Society",
       "email": "support@hungerfree.org"
-    },
-    "status": "Requested"
+    }
   },
   {
     "thumbnail": "https://i.ibb.co.com/VLFRq6L/Tree-Plantation-Campaign.jpg",
@@ -80,8 +75,7 @@
     "organizer": {
       "name": "Green Earth",
       "email": "info@greenearth.org"
-    },
-    "status": "Requested"
+    }
   },
   {
     "thumbnail": "https://i.ibb.co.com/Kz1s5Br/Free-Tutoring-for-Street-Kids.jpg",
@@ -94,8 +88,7 @@
     "organizer": {
       "name": "Street Education Program",
       "email": "teach@streetedu.org"
-    },
-    "status": "Requested"
+    }
   },
   {
     "thumbnail": "https://i.ibb.co.com/1L3hjXy/Blood-Donation-Camp.png",
@@ -108,7 +101,6 @@
     "organizer": {
       "name": "Blood Donors Alliance",
       "email": "connect@blooddonors.org"
-    },
-    "status": "Requested"
+    }
   }
 ]

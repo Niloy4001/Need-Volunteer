@@ -8,8 +8,7 @@ import { Helmet } from "react-helmet";
 
 const BeAVolunteer = () => {
   const { user } = useContext(AuthContext);
-const {data} = useLoaderData();
-
+  const { data } = useLoaderData();
 
   const {
     _id,
@@ -21,35 +20,41 @@ const {data} = useLoaderData();
     volunteersNeeded,
     deadline,
     organizer,
-    status,
   } = data || {};
-    // (post);
+  // (post);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const form = e.target
+    const form = e.target;
     const volunteerName = e.target.volunteerName.value;
     const volunteerEmail = e.target.volunteerEmail.value;
     const suggestion = e.target.suggestion.value;
+    const status = e.target.status.value;
 
-    
-    const newObj = {...data}
-    delete newObj._id
-    newObj.postId = _id
-    newObj.suggestion = suggestion
-    newObj.volunteer = {name:volunteerName, email:volunteerEmail}
+    const newObj = { ...data };
+    delete newObj._id;
+    newObj.postId = _id;
+    newObj.suggestion = suggestion;
+    newObj.volunteer = { name: volunteerName, email: volunteerEmail };
+    newObj.status = status;
 
     if (volunteerEmail === newObj.organizer.email) {
       return Swal.fire({
         title: "You Can't Request your own Post",
         icon: "error",
-        confirmButtonColor:"red",
+        confirmButtonColor: "red",
       });
     }
-    (volunteerEmail);
-    (newObj.organizer.email);
-    
 
+    if (volunteersNeeded < 1) {
+      return Swal.fire({
+        title: "No volunteer Needed for this post",
+        icon: "error",
+        confirmButtonColor: "red",
+      });
+    }
+
+    // console.log(volunteersNeeded, newObj);
 
     axios
     .post("https://need-volunteer-server.vercel.app/addVolunteer", newObj)
@@ -63,10 +68,6 @@ const {data} = useLoaderData();
     .catch(function (error) {
       (error);
     });
-
-    (newObj);
-    
-    
   };
 
   return (
@@ -78,7 +79,9 @@ const {data} = useLoaderData();
         onSubmit={handleSubmit}
         className="max-w-lg mx-auto p-4 border border-gray-200 shadow rounded"
       >
-        <h2 className="text-center text-xl md:text-2xl lg:text-3xl font-bold mb-6">Add Volunteer Post</h2>
+        <h2 className="text-center text-xl md:text-2xl lg:text-3xl font-bold mb-6">
+          Add Volunteer Post
+        </h2>
 
         {/* Thumbnail */}
         <div className="mb-4">
@@ -127,11 +130,7 @@ const {data} = useLoaderData();
             readOnly
             defaultValue={category}
           >
-            <option value="">Select a category</option>
-            <option value="healthcare">Healthcare</option>
-            <option value="education">Education</option>
-            <option value="social-service">Social Service</option>
-            <option value="animal-welfare">Animal Welfare</option>
+            <option value={category}>{category}</option>
           </select>
         </div>
 
@@ -225,7 +224,18 @@ const {data} = useLoaderData();
             className="w-full border border-gray-300 rounded px-3 py-2"
           ></textarea>
         </div>
-        <div>status : {status}</div>
+        {/* Status */}
+        <div className="mb-4">
+          <label className="block mb-2 font-medium">Status</label>
+          <select
+            name="status"
+            className="w-full border border-gray-300 rounded px-3 py-2"
+            readOnly
+            defaultValue={"requested"}
+          >
+            <option value="requested">Requested</option>
+          </select>
+        </div>
 
         {/* Submit Button */}
         <div>

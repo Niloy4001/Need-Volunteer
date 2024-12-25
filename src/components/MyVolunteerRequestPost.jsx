@@ -65,7 +65,7 @@ const MyVolunteerRequestPost = () => {
             <tr>
               <th>Title</th>
               <th>Organizer</th>
-              <th>Need Volunteer</th>
+              <th>Status</th>
               <th>Action</th>
             </tr>
           </thead>
@@ -96,7 +96,7 @@ const MyVolunteerRequestPost = () => {
                       {post.organizer.email}
                     </span>
                   </td>
-                  <td>{post.volunteersNeeded}</td>
+                  <td>{post.status}</td>
                   <th className="space-x-1">
                    <button 
                    onClick={() => handleDelete(post._id)}
@@ -105,7 +105,7 @@ const MyVolunteerRequestPost = () => {
                 </tr>
               ))}
             {posts.length < 1 && (
-              <tr><td className="col-span-4 text-center font-medium text-lg md:text-2xl lg:text-3xl">You did not request to become a Volunteer</td></tr>
+              <tr><td className="col-span-4 text-center font-medium text-base md:text-xl lg:text-2xl">You did not request to become a Volunteer</td></tr>
             )}
           </tbody>
         </table>
