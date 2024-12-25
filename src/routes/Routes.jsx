@@ -51,10 +51,10 @@ const router = createBrowserRouter([
             <DetailsPost></DetailsPost>
           </PrivateRoute>
         ),
-        loader: async ({ params }) =>
-          await axios.get(
-            `https://need-volunteer-server.vercel.app/post/${params.id}`,{withCredentials:true}
-          ),
+        // loader: async ({ params }) =>
+        //   await axios.get(
+        //     `https://need-volunteer-server.vercel.app/post/${params.id}`,{withCredentials:true}
+        //   ),
       },
       {
         path: `/updatePost/:id`,
@@ -66,11 +66,6 @@ const router = createBrowserRouter([
         loader:async ({ params }) =>
           await axios.get(`https://need-volunteer-server.vercel.app/post/${params.id}`,{withCredentials:true}),
       },
-      // {
-      //   path: `/beAVolunteer/:id`,
-      //   element: <BeAVolunteer></BeAVolunteer>,
-      
-      // },
       {
         path: `/beAVolunteer/:id`,
         element: <BeAVolunteer></BeAVolunteer>,
