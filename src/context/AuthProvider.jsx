@@ -52,17 +52,17 @@ const AuthProvider = ({ children }) => {
     const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
       if (currentUser?.email) {
         setUser(currentUser);
-        await axios.post(
-          "http://localhost:4000/jwt",
-          { email: currentUser.email },
-          { withCredentials: true }
-        );
+        // await axios.post(
+        //   "https://need-volunteer-server.vercel.app/jwt",
+        //   { email: currentUser.email },
+        //   { withCredentials: true }
+        // );
       } else {
         setUser(null);
-        await axios.get(
-          "http://localhost:4000/logout",
-          { withCredentials: true }
-        );
+        // await axios.get(
+        //   "https://need-volunteer-server.vercel.app/logout",
+        //   { withCredentials: true }
+        // );
       }
       setLoading(false);
     });

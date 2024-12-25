@@ -14,7 +14,7 @@ const AddPost = () => {
   const handleAdd = (e) => {
     e.preventDefault();
     const formData = new FormData(e.target);
-    // console.log(formData);
+    // (formData);
     const obj = Object.fromEntries(formData.entries());
     obj.deadline = format(new Date(selectedDate), "P");
     obj.organizer = {
@@ -25,16 +25,17 @@ const AddPost = () => {
    
 
     axios
-      .post(`http://localhost:4000/addPost?email=${user.email}`, obj,{withCredentials:true})
+      .post(`https://need-volunteer-server.vercel.app/addPost?email=${user.email}`, obj,{withCredentials:true})
       .then(function (response) {
         Swal.fire({
           title: "Post Added Successfully",
           icon: "success",
+          confirmButtonColor:"#2B3440",
         });
         e.target.reset();
       })
       .catch(function (error) {
-        console.log(error);
+        (error);
       });
   };
   return (
@@ -46,7 +47,7 @@ const AddPost = () => {
         onSubmit={handleAdd}
         className="max-w-lg mx-auto p-4 border border-gray-200 shadow rounded"
       >
-        <h2 className="text-xl font-bold mb-4">Add Volunteer Post</h2>
+        <h2 className="text-center text-xl md:text-2xl lg:text-3xl font-bold mb-6">Add Volunteer Post</h2>
 
         {/* Thumbnail */}
         <div className="mb-4">
@@ -161,7 +162,7 @@ const AddPost = () => {
         <div>
           <button
             type="submit"
-            className="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition"
+            className="w-full bg-[#2B3440] text-white py-2 rounded-lg hover:bg-[#2B3440] transition"
           >
             Add Post
           </button>

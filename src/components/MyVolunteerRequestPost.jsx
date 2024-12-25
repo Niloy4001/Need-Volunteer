@@ -7,14 +7,14 @@ import axios from "axios";
 const MyVolunteerRequestPost = () => {
   const { user } = useContext(AuthContext);
   const [posts, setPosts] = useState([]);
-  // console.log(posts);
+  // (posts);
 
   useEffect(() => {
-    // fetch(`http://localhost:4000/myRequestedPost?email=${user.email}`)
+    // fetch(`https://need-volunteer-server.vercel.app/myRequestedPost?email=${user.email}`)
     //   .then((res) => res.json())
     //   .then((data) => setPosts(data));
 
-      axios.get(`http://localhost:4000/myRequestedPost?email=${user.email}`,{withCredentials:true})
+      axios.get(`https://need-volunteer-server.vercel.app/myRequestedPost?email=${user.email}`,{withCredentials:true})
       .then(res => setPosts(res.data))
   }, []);
 
@@ -32,7 +32,7 @@ const MyVolunteerRequestPost = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .delete(`http://localhost:4000/deleteRequestedPost/${id}`)
+          .delete(`https://need-volunteer-server.vercel.app/deleteRequestedPost/${id}`)
           .then(function (response) {
             if (response.data.deletedCount === 1) {
               Swal.fire({
@@ -43,10 +43,10 @@ const MyVolunteerRequestPost = () => {
               const remaining = posts.filter((post) => post._id !== id);
               setPosts(remaining);
             }
-            console.log(response.data);
+            (response.data);
           })
           .catch(function (error) {
-            console.log(error);
+            (error);
           });
 
       
@@ -56,7 +56,7 @@ const MyVolunteerRequestPost = () => {
 
   return (
     <div>
-      MyVolunteerRequestPost
+      <h1 className="text-left text-xl md:text-2xl lg:text-3xl font-bold mb-6">My Volunteer Request Post</h1>
       <div className="overflow-x-auto">
         <table className="table">
           {/* head */}

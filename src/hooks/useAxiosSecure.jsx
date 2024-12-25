@@ -3,7 +3,7 @@ import { useContext, useEffect } from "react";
 import { AuthContext } from "../context/AuthProvider";
 
 const axiosSecure = axios.create({
-  baseURL: "http://localhost:4000/",
+  baseURL: "https://need-volunteer-server.vercel.app/",
   withCredentials: true,
 });
 
@@ -13,9 +13,9 @@ const useAxiosSecure = () => {
     axiosSecure.interceptors.response.use((res) => {
         return res;
       },  error =>{
-        console.log('error from hook', error);
+        ('error from hook', error);
         if (error.response.status === 401 || error.response.status === 403) {
-            console.log('getout');
+            ('getout');
             logOut()
             
         }

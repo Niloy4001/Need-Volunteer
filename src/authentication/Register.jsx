@@ -6,6 +6,7 @@ import { HiOutlineEyeOff } from "react-icons/hi";
 import Swal from "sweetalert2";
 import { Helmet } from "react-helmet";
 import { AuthContext } from "../context/AuthProvider";
+import background from "../assets/cool-background.png";
 
 const Register = () => {
   const { logInByGoogle, signInByEmailPassword, user, manageProfile, logOut } =
@@ -92,9 +93,9 @@ const Register = () => {
           <div className="w-full px-8">
             <button
               onClick={handleGoogleLogIn}
-              className="btn text-[10px] md:text-sm border border-solid border-[#8758f1] hover:text-white hover:bg-gradient-to-b from-[#f948b2] to-[#8758f1] w-full flex items-center justify-center space-x-2 mb-2"
+              className="btn text-[10px] md:text-sm border border-solid border-[#2B3440] hover:text-white hover:bg-gradient-to-b from-[#2B3440] to-[#2B3440] w-full flex items-center justify-center space-x-2 mb-2"
             >
-              <FaGoogle className="text-[#8758f1] " />
+              <FaGoogle className="text-[#2B3440] " />
               <span>Register with Google</span>
             </button>
           </div>
@@ -159,7 +160,7 @@ const Register = () => {
               </span>
             </div>
             <div className="form-control mt-6">
-              <button className="btn shadow-2xl text-white bg-gradient-to-b from-[#f948b2] to-[#8758f1]">
+              <button className="btn shadow-2xl text-white bg-gradient-to-b from-[#2B3440] to-[#2B3440]">
                 Register
               </button>
             </div>
@@ -177,6 +178,9 @@ const Register = () => {
               </p>
             </div>
           </form>
+        </div>
+        <div>
+          <img src={background} alt="" />
         </div>
       </div>
     </div>

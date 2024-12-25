@@ -5,7 +5,7 @@ import { Helmet } from "react-helmet";
 import { HiOutlineEyeOff } from "react-icons/hi";
 import { RiEyeLine } from "react-icons/ri";
 import { AuthContext } from "../context/AuthProvider";
-
+import background from "../assets/cool-background.png"
 const LogIn = () => {
   const { logInByGoogle, logInByEmailPassword, user, setForgotEmail } =
     useContext(AuthContext);
@@ -56,14 +56,14 @@ const LogIn = () => {
       <div className="flex justify-center items-center py-14 px-3">
         <div className="card bg-base-100 w-full max-w-lg p-4 shrink-0 shadow-2xl">
           {/* title */}
-          <h1 className="text-4xl text-center font-bold mb-5">Log In</h1>
+          <h1 className="text-left text-xl md:text-2xl lg:text-3xl font-bold mb-6">Log In</h1>
           {/* google log in */}
           <div className="w-full px-8">
             <button
               onClick={handleGoogleLogIn}
-              className="btn text-[10px] md:text-sm border border-solid border-[#8758f1] hover:text-white hover:bg-gradient-to-b from-[#f948b2] to-[#8758f1] w-full flex items-center justify-center space-x-2 mb-2"
+              className="btn text-[10px] md:text-sm border border-solid border-[#2B3440] hover:text-white hover:bg-[#2B3440] w-full flex items-center justify-center space-x-2 mb-2"
             >
-              <FaGoogle className="text-[#8758f1] " />
+              <FaGoogle className="text-[#2B3440] " />
               <span>Login with Google</span>
             </button>
           </div>
@@ -104,7 +104,7 @@ const LogIn = () => {
               </span>
             </div>
             <div className="form-control mt-6">
-              <button className="btn shadow-2xl text-white bg-gradient-to-b from-[#f948b2] to-[#8758f1]">
+              <button className="btn shadow-2xl text-white bg-gradient-to-b from-[#2B3440] to-[#2B3440]">
                 Login
               </button>
             </div>
@@ -122,6 +122,9 @@ const LogIn = () => {
               </p>
             </div>
           </form>
+        </div>
+        <div>
+          <img src={background} alt="" />
         </div>
       </div>
     </div>

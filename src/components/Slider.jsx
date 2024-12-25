@@ -3,8 +3,8 @@ import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
 import slider1 from '../assets/slider1.png'
-import slider2 from '../assets/slider2.png'
-import slider3 from '../assets/slider3.png'
+import slider2 from '../assets/slider2.avif'
+import slider3 from '../assets/slider3.avif'
 import slider4 from '../assets/slider4.png'
 
 // Import Swiper styles

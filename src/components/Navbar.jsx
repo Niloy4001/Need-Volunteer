@@ -52,7 +52,8 @@ const Navbar = () => {
 
   return (
     <div>
-      <div className="navbar bg-base-100 w-[90%] mx-auto">
+      <div className="md:hidden"><Link to={"/"} className="btn btn-ghost text-xl md:text-2xl lg:text-3xl font-bold text-center w-full">NEED VOLUNTEER</Link></div>
+      <div className="navbar w-[90%] mx-auto py-0 md:py-6 ">
         <div className="navbar-start">
           <div className="dropdown">
             <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -78,7 +79,7 @@ const Navbar = () => {
               {links}
             </ul>
           </div>
-          <a className="btn btn-ghost text-xl">NEED VOLUNTEER</a>
+          <Link to={"/"} className="btn btn-ghost text-xl md:text-2xl lg:text-3xl font-bold hidden md:flex">NEED VOLUNTEER</Link>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{links}</ul>
@@ -86,7 +87,7 @@ const Navbar = () => {
         <div className="navbar-end gap-1">
           <div
             onClick={() => handleMode()}
-            className=" shadow-2xl text-white bg-gradient-to-b from-[#f948b2] to-[#8758f1]  btn btn-sm   rounded-full"
+            className=" shadow-2xl text-[#2B3440] border-[#2B3440]  btn btn-sm   rounded-full"
           >
             {mode === "light" ? <FaRegMoon /> : <MdOutlineLightMode />}
           </div>

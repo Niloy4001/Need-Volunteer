@@ -23,7 +23,7 @@ const {data} = useLoaderData();
     organizer,
     status,
   } = data || {};
-    // console.log(post);
+    // (post);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -39,9 +39,20 @@ const {data} = useLoaderData();
     newObj.suggestion = suggestion
     newObj.volunteer = {name:volunteerName, email:volunteerEmail}
 
+    if (volunteerEmail === newObj.organizer.email) {
+      return Swal.fire({
+        title: "You Can't Request your own Post",
+        icon: "error",
+        confirmButtonColor:"red",
+      });
+    }
+    (volunteerEmail);
+    (newObj.organizer.email);
+    
+
 
     axios
-    .post("http://localhost:4000/addVolunteer", newObj)
+    .post("https://need-volunteer-server.vercel.app/addVolunteer", newObj)
     .then(function (response) {
       Swal.fire({
         title: "Request Submitted",
@@ -50,10 +61,10 @@ const {data} = useLoaderData();
       e.target.reset();
     })
     .catch(function (error) {
-      console.log(error);
+      (error);
     });
 
-    console.log(newObj);
+    (newObj);
     
     
   };
@@ -67,7 +78,7 @@ const {data} = useLoaderData();
         onSubmit={handleSubmit}
         className="max-w-lg mx-auto p-4 border border-gray-200 shadow rounded"
       >
-        <h2 className="text-xl font-bold mb-4">Add Volunteer Post</h2>
+        <h2 className="text-center text-xl md:text-2xl lg:text-3xl font-bold mb-6">Add Volunteer Post</h2>
 
         {/* Thumbnail */}
         <div className="mb-4">
@@ -220,7 +231,7 @@ const {data} = useLoaderData();
         <div>
           <button
             type="submit"
-            className="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition"
+            className="w-full bg-[#2B3440] text-white py-2 rounded-lg hover:bg-[#2B3440] transition"
           >
             Request
           </button>

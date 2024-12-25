@@ -8,14 +8,14 @@ import { Link } from "react-router-dom";
 const MyVolunteerNeedPost = () => {
   const { user } = useContext(AuthContext);
   const [posts, setPosts] = useState([]);
-  //   console.log(posts);
+  //   (posts);
 
   useEffect(() => {
-    // fetch(`http://localhost:4000/myNeedPost?email=${user.email}`)
+    // fetch(`https://need-volunteer-server.vercel.app/myNeedPost?email=${user.email}`)
     //   .then((res) => res.json())
     //   .then((data) => setPosts(data));
 
-    axios.get(`http://localhost:4000/myNeedPost?email=${user.email}`,{withCredentials:true})
+    axios.get(`https://need-volunteer-server.vercel.app/myNeedPost?email=${user.email}`,{withCredentials:true})
       .then(res => setPosts(res.data))
 
   }, []);
@@ -32,7 +32,7 @@ const MyVolunteerNeedPost = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .delete(`http://localhost:4000/delete/${id}`)
+          .delete(`https://need-volunteer-server.vercel.app/delete/${id}`)
           .then(function (response) {
             if (response.data.deletedCount === 1) {
               Swal.fire({
@@ -43,25 +43,26 @@ const MyVolunteerNeedPost = () => {
               const remaining = posts.filter((post) => post._id !== id);
               setPosts(remaining);
             }
-            console.log(response.data);
+            (response.data);
           })
           .catch(function (error) {
-            console.log(error);
+            (error);
           });
 
-        // console.log("dele");
+        // ("dele");
       }
     });
   };
   return (
-    <div>
-      MyVolunteerNeedPost
+    <div className="mb-9 md:mb-14">
+      <h1 className="text-left text-xl md:text-2xl lg:text-3xl font-bold mb-6">My Volunteer Need Post</h1>
       <div className="overflow-x-auto">
         <table className="table">
           {/* head */}
           <thead>
             <tr>
               <th>Title</th>
+              <th>Deadline</th>
               <th>Organizer</th>
               <th>Need Volunteer</th>
               <th>Action</th>
@@ -86,6 +87,9 @@ const MyVolunteerNeedPost = () => {
                         </div>
                       </div>
                     </div>
+                  </td>
+                  <td>
+                    <p>{post.deadline}</p>
                   </td>
                   <td>
                     {post.organizer.name}
