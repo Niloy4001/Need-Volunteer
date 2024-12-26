@@ -29,7 +29,7 @@ const Navbar = () => {
         </NavLink>
       </li>
       <li className="dropdown dropdown-bottom">
-        <div tabIndex={0} role="button" className=" font-normal btn-sm m-1">
+        <div tabIndex={0} role="button" className=" font-normal btn-sm">
           My Profile
         </div>
         <ul

@@ -7,21 +7,17 @@ import axios from "axios";
 const MyVolunteerRequestPost = () => {
   const { user } = useContext(AuthContext);
   const [posts, setPosts] = useState([]);
-  // (posts);
+  
 
   useEffect(() => {
-    // fetch(`https://need-volunteer-server.vercel.app/myRequestedPost?email=${user.email}`)
-    //   .then((res) => res.json())
-    //   .then((data) => setPosts(data));
 
       axios.get(`https://need-volunteer-server.vercel.app/myRequestedPost?email=${user.email}`,{withCredentials:true})
-      // axios.get(`https://need-volunteer-server.vercel.app/myRequestedPost?email=introvertpro2@gmail.com`,{withCredentials:true})
       .then(res => setPosts(res.data))
   }, []);
 
 
 
-  const handleDelete = (id) => {
+  const handleDelete = (id,postId) => {
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -33,7 +29,7 @@ const MyVolunteerRequestPost = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .delete(`https://need-volunteer-server.vercel.app/deleteRequestedPost/${id}`)
+          .delete(`https://need-volunteer-server.vercel.app/deleteRequestedPost/${id}?postId=${postId}`)
           .then(function (response) {
             if (response.data.deletedCount === 1) {
               Swal.fire({
@@ -47,7 +43,7 @@ const MyVolunteerRequestPost = () => {
             (response.data);
           })
           .catch(function (error) {
-            (error);
+            
           });
 
       
@@ -99,7 +95,7 @@ const MyVolunteerRequestPost = () => {
                   <td>{post.status}</td>
                   <th className="space-x-1">
                    <button 
-                   onClick={() => handleDelete(post._id)}
+                   onClick={() => handleDelete(post._id,post.postId)}
                    className="btn btn-ghost btn-xs text-xl hover:text-red-500"><MdCancel /></button>
                   </th>
                 </tr>

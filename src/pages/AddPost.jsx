@@ -6,10 +6,12 @@ import { format } from "date-fns";
 import axios from "axios";
 import Swal from "sweetalert2";
 import { Helmet } from "react-helmet";
+import useAxiosSecure from "../hooks/useAxiosSecure";
 
 const AddPost = () => {
   const { user } = useContext(AuthContext);
   const [selectedDate, setSelectedDate] = useState(new Date());
+  const axiosSecure = useAxiosSecure()
 
   const handleAdd = (e) => {
     e.preventDefault();
@@ -21,21 +23,27 @@ const AddPost = () => {
       name: user?.displayName,
       email: user?.email,
     };
-    obj.status = "Requested"
+   
    
 
-    axios
-      .post(`https://need-volunteer-server.vercel.app/addPost?email=${user.email}`, obj,{withCredentials:true})
+    // axios
+    //   .post(`https://need-volunteer-server.vercel.app/addPost?email=${user.email}`, obj,{withCredentials:true})
+    axiosSecure
+      .post(`addPost?email=${user.email}`, obj)
       .then(function (response) {
-        Swal.fire({
-          title: "Post Added Successfully",
-          icon: "success",
-          confirmButtonColor:"#2B3440",
-        });
+        console.log(response.data);
+        if (response.data.acknowledged) {
+          Swal.fire({
+            title: "Post Added Successfully",
+            icon: "success",
+            confirmButtonColor:"#2B3440",
+          }); 
+        }
         e.target.reset();
       })
       .catch(function (error) {
-        (error);
+        // console.log(error);
+        
       });
   };
   return (

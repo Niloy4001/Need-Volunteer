@@ -15,7 +15,7 @@ const useAxiosSecure = () => {
     axiosSecure.interceptors.response.use((res) => {
         return res;
       },  error =>{
-        ('error from hook', error);
+        // ('error from hook', error);
         if (error.response.status === 401 || error.response.status === 403) {
             
             logOut()

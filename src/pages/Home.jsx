@@ -3,6 +3,9 @@ import Slider from '../components/Slider'
 import VolunteerNeedsNow from '../components/VolunteerNeedsNow'
 import { Helmet } from 'react-helmet'
 import OurBlogs from '../components/OurBlogs'
+import FAQ from '../components/FAQ'
+
+
 
 
 const Home = () => {
@@ -14,6 +17,7 @@ const Home = () => {
         <Slider></Slider>
         <VolunteerNeedsNow></VolunteerNeedsNow>
         <OurBlogs></OurBlogs>
+        <FAQ></FAQ>      
       
     </div>
   )
