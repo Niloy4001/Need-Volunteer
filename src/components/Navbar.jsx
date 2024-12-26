@@ -142,25 +142,30 @@ const Navbar = () => {
         <div className="navbar-end gap-1">
           <div
             onClick={() => handleMode()}
-            className=" shadow-2xl text-[#2B3440] border-[#2B3440]  btn btn-sm   rounded-full"
+            className={`shadow-2xl ${
+              mode === "light" ? "text-[#2B3440]" : "text-white"
+            } border-[#2B3440]  btn btn-sm   rounded-full h-0`}
           >
             {mode === "light" ? <FaRegMoon /> : <MdOutlineLightMode />}
           </div>
           {user ? (
             <>
               {/* Avatar */}
-              <div className="dropdown dropdown-end tooltip tooltip-top dropdown-hover" data-tip={user?.displayName}>
+              <div
+                className="dropdown dropdown-end tooltip tooltip-top dropdown-hover"
+                data-tip={user?.displayName}
+              >
                 <div
                   tabIndex={0}
                   role="button"
                   className="btn btn-ghost btn-circle avatar "
                 >
                   <div className="w-10 rounded-full">
-                      <img
-                        alt="/"
-                        referrerPolicy="no-referrer"
-                        src={user?.photoURL}
-                      />
+                    <img
+                      alt="/"
+                      referrerPolicy="no-referrer"
+                      src={user?.photoURL}
+                    />
                   </div>
                 </div>
                 <ul
@@ -171,9 +176,9 @@ const Navbar = () => {
                     <p>{user?.displayName}</p>
                   </li>
                   <li>
-                  <button onClick={handleLogOut} className="btn btn-sm">
-                Logout
-              </button>
+                    <button onClick={handleLogOut} className="btn btn-sm">
+                      Logout
+                    </button>
                   </li>
                 </ul>
               </div>
@@ -195,7 +200,6 @@ const Navbar = () => {
           {/* Login and Register btn */}
         </div>
       </div>
-     
     </div>
   );
 };

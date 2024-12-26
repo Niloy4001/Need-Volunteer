@@ -4,7 +4,7 @@ import { AuthContext } from "../context/AuthProvider";
 import DatePicker from "react-datepicker";
 import axios from "axios";
 import Swal from "sweetalert2";
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 
 const BeAVolunteer = () => {
   const { user } = useContext(AuthContext);
@@ -54,20 +54,18 @@ const BeAVolunteer = () => {
       });
     }
 
-    // console.log(volunteersNeeded, newObj);
-
     axios
-    .post("https://need-volunteer-server.vercel.app/addVolunteer", newObj)
-    .then(function (response) {
-      Swal.fire({
-        title: "Request Submitted",
-        icon: "success",
+      .post("https://need-volunteer-server.vercel.app/addVolunteer", newObj)
+      .then(function (response) {
+        Swal.fire({
+          title: "Request Submitted",
+          icon: "success",
+        });
+        e.target.reset();
+      })
+      .catch(function (error) {
+        error;
       });
-      e.target.reset();
-    })
-    .catch(function (error) {
-      (error);
-    });
   };
 
   return (

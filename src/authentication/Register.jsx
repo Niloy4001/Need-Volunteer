@@ -4,9 +4,10 @@ import { Link, useNavigate } from "react-router-dom";
 import { RiEyeLine } from "react-icons/ri";
 import { HiOutlineEyeOff } from "react-icons/hi";
 import Swal from "sweetalert2";
-import { Helmet } from "react-helmet";
+
 import { AuthContext } from "../context/AuthProvider";
 import background from "../assets/cool-background.png";
+import { Helmet } from "react-helmet-async";
 
 const Register = () => {
   const { logInByGoogle, signInByEmailPassword, user, manageProfile, logOut } =

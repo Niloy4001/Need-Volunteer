@@ -4,9 +4,10 @@ import React, { useEffect, useState } from "react";
 const OurBlogs = () => {
   const [blogs, setBlogs] = useState([]);
   useEffect(() => {
-    axios.get("https://need-volunteer-server.vercel.app/blogs").then((res) => setBlogs(res.data));
+    axios
+      .get("https://need-volunteer-server.vercel.app/blogs")
+      .then((res) => setBlogs(res.data));
   }, []);
-  // console.log(blogs);
 
   return (
     <div className="w-[90%] mx-auto py-7 md:py-12 lg:py-16">
@@ -31,10 +32,7 @@ const OurBlogs = () => {
                 </h2>
                 <p className="text-sm text-gray-600 mb-4">{blog.subTitle}</p>
                 <p className="text-xs text-gray-500 mb-4">{blog.postedDate}</p>
-                {/* button */}
-                {/* <button className="px-4 py-2 text-sm text-white bg-gray-800 rounded hover:bg-gray-700">
-                    Read...
-                  </button> */}
+
                 <div className=" collapse">
                   <input type="checkbox" className="peer min-h-0" />
                   <div className="btn bg-[#2B3440] btn-sm text-white collapse-title  ">

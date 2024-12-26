@@ -4,20 +4,17 @@ import { MdDeleteForever, MdEdit } from "react-icons/md";
 import axios from "axios";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
+import useAxiosSecure from "../hooks/useAxiosSecure";
 
 const MyVolunteerNeedPost = () => {
+  const axiosSecure = useAxiosSecure();
   const { user } = useContext(AuthContext);
   const [posts, setPosts] = useState([]);
-  //   (posts);
 
   useEffect(() => {
-    // fetch(`https://need-volunteer-server.vercel.app/myNeedPost?email=${user.email}`)
-    //   .then((res) => res.json())
-    //   .then((data) => setPosts(data));
-
-    axios.get(`https://need-volunteer-server.vercel.app/myNeedPost?email=${user.email}`,{withCredentials:true})
-      .then(res => setPosts(res.data))
-
+    axiosSecure
+      .get(`myNeedPost?email=${user.email}`)
+      .then((res) => setPosts(res.data));
   }, []);
 
   const handleDelete = (id) => {
@@ -43,18 +40,19 @@ const MyVolunteerNeedPost = () => {
               const remaining = posts.filter((post) => post._id !== id);
               setPosts(remaining);
             }
-            (response.data);
+            response.data;
           })
           .catch(function (error) {
-            (error);
+            error;
           });
-
       }
     });
   };
   return (
     <div className="mb-9 md:mb-14">
-      <h1 className="text-left text-xl md:text-2xl lg:text-3xl font-bold mb-6">My Volunteer Need Post</h1>
+      <h1 className="text-left text-xl md:text-2xl lg:text-3xl font-bold mb-6">
+        My Volunteer Need Post
+      </h1>
       <div className="overflow-x-auto">
         <table className="table">
           {/* head */}
@@ -105,7 +103,10 @@ const MyVolunteerNeedPost = () => {
                     >
                       <MdDeleteForever />
                     </button>
-                    <Link to={`/updatePost/${post._id}`} className="btn btn-ghost btn-xs text-xl hover:text-blue-700">
+                    <Link
+                      to={`/updatePost/${post._id}`}
+                      className="btn btn-ghost btn-xs text-xl hover:text-blue-700"
+                    >
                       <MdEdit />
                     </Link>
                   </th>

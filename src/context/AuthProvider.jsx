@@ -60,12 +60,10 @@ const AuthProvider = ({ children }) => {
         setLoading(false);
       } else {
         setUser(null);
-        await axios.get(
-          "https://need-volunteer-server.vercel.app/logout",
-          { withCredentials: true }
-        );
+        await axios.get("https://need-volunteer-server.vercel.app/logout", {
+          withCredentials: true,
+        });
       }
-      
     });
 
     return () => {

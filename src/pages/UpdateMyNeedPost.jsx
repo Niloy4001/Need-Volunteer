@@ -5,14 +5,13 @@ import { AuthContext } from "../context/AuthProvider";
 import axios from "axios";
 import Swal from "sweetalert2";
 import { format } from "date-fns";
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 
 const UpdateMyNeedPost = () => {
   const { user } = useContext(AuthContext);
-  const {data} = useLoaderData();
-  const navigate = useNavigate()
-  // console.log(post);
-  
+  const { data } = useLoaderData();
+  const navigate = useNavigate();
+
   const {
     _id,
     thumbnail,
@@ -25,7 +24,7 @@ const UpdateMyNeedPost = () => {
     organizer,
     status,
   } = data || {};
-  // (postTitle);
+  
 
   const [selectedDate, setSelectedDate] = useState(deadline);
 
@@ -37,9 +36,6 @@ const UpdateMyNeedPost = () => {
     obj.deadline = format(new Date(selectedDate), "P");
     obj.status = status;
     obj.organizer = { name: organizer.name, email: organizer.email };
-    
-    // console.log(obj);
-    
 
     axios
       .put(`https://need-volunteer-server.vercel.app/update/${_id}`, obj)
@@ -47,13 +43,13 @@ const UpdateMyNeedPost = () => {
         Swal.fire({
           title: "Your post Updated",
           icon: "success",
-          confirmButtonColor:"#2B3440"
+          confirmButtonColor: "#2B3440",
         });
-        navigate('/manageMyPost')
+        navigate("/manageMyPost");
         e.target.reset();
       })
       .catch(function (error) {
-        (error);
+        error;
       });
 
     // (newObj);
@@ -68,7 +64,9 @@ const UpdateMyNeedPost = () => {
         onSubmit={handleSubmit}
         className="max-w-lg mx-auto p-4 border border-gray-200 shadow rounded"
       >
-        <h2 className="text-center text-xl md:text-2xl lg:text-3xl font-bold mb-6">Update Your Post</h2>
+        <h2 className="text-center text-xl md:text-2xl lg:text-3xl font-bold mb-6">
+          Update Your Post
+        </h2>
 
         {/* Thumbnail */}
         <div className="mb-4">

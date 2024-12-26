@@ -5,13 +5,14 @@ import { AuthContext } from "../context/AuthProvider";
 import { format } from "date-fns";
 import axios from "axios";
 import Swal from "sweetalert2";
-import { Helmet } from "react-helmet";
+
 import useAxiosSecure from "../hooks/useAxiosSecure";
+import { Helmet } from "react-helmet-async";
 
 const AddPost = () => {
   const { user } = useContext(AuthContext);
   const [selectedDate, setSelectedDate] = useState(new Date());
-  const axiosSecure = useAxiosSecure()
+  const axiosSecure = useAxiosSecure();
 
   const handleAdd = (e) => {
     e.preventDefault();
@@ -23,25 +24,20 @@ const AddPost = () => {
       name: user?.displayName,
       email: user?.email,
     };
-   
-   
+
     axiosSecure
       .post(`addPost?email=${user.email}`, obj)
       .then(function (response) {
-        console.log(response.data);
         if (response.data.acknowledged) {
           Swal.fire({
             title: "Post Added Successfully",
             icon: "success",
-            confirmButtonColor:"#2B3440",
-          }); 
+            confirmButtonColor: "#2B3440",
+          });
         }
         e.target.reset();
       })
-      .catch(function (error) {
-        // console.log(error);
-        
-      });
+      .catch(function (error) {});
   };
   return (
     <div className="py-7 md:py-14">
@@ -52,7 +48,9 @@ const AddPost = () => {
         onSubmit={handleAdd}
         className="max-w-lg mx-auto p-4 border border-gray-200 shadow rounded"
       >
-        <h2 className="text-center text-xl md:text-2xl lg:text-3xl font-bold mb-6">Add Volunteer Post</h2>
+        <h2 className="text-center text-xl md:text-2xl lg:text-3xl font-bold mb-6">
+          Add Volunteer Post
+        </h2>
 
         {/* Thumbnail */}
         <div className="mb-4">

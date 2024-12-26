@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Helmet } from "react-helmet";
+import { Helmet } from "react-helmet-async";
 import { BsGrid3X3GapFill } from "react-icons/bs";
 import { MdCancel } from "react-icons/md";
 import { PiTableBold } from "react-icons/pi";
@@ -9,7 +9,7 @@ const AllPost = () => {
   const [posts, setPosts] = useState([]);
   const [search, setSearch] = useState("");
   const [grid, setGrid] = useState("grid");
-  (search);
+  search;
 
   useEffect(() => {
     fetch(`https://need-volunteer-server.vercel.app/allPost?search=${search}`)
@@ -48,78 +48,81 @@ const AllPost = () => {
                 />
               </svg>
             </label>
-            <p className="text-xl cursor-pointer" onClick={() => setGrid("grid")}>
+            <p
+              className="text-xl cursor-pointer"
+              onClick={() => setGrid("grid")}
+            >
               <BsGrid3X3GapFill />
             </p>
-            <p className="text-2xl cursor-pointer" onClick={() => setGrid("table")}>
+            <p
+              className="text-2xl cursor-pointer"
+              onClick={() => setGrid("table")}
+            >
               <PiTableBold />
             </p>
           </div>
         </div>
 
         {/* all post */}
-    {
-      posts.length > 0 && (
-        grid === "grid" ? <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {
-           posts.map((post) => (
-            <div
-              key={post._id}
-              className="w-full bg-white rounded-xl shadow-lg overflow-hidden"
-            >
-              <img
-                src={post.thumbnail}
-                alt="Tech Image"
-                className="w-full h-48 object-cover"
-              />
-              <div className="p-4">
-                <span className="inline-block px-3 py-1 text-sm font-semibold text-white bg-gray-600 rounded-full mb-3">
-                  {post.category}
-                </span>
-                <h2 className="text-lg font-bold text-gray-800 mb-2">
-                  {post.postTitle}
-                </h2>
-                <p className="text-gray-600 text-sm mb-4">
-                  {post.description}
-                </p>
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center">
-                    <div className="ml-3">
-                      <p className="text-sm font-medium text-gray-800">
-                        Deadline
-                      </p>
-                      <p className="text-xs text-gray-500">
-                        {post.deadline}{" "}
-                      </p>
+        {posts.length > 0 &&
+          (grid === "grid" ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {posts.map((post) => (
+                <div
+                  key={post._id}
+                  className="w-full bg-white rounded-xl shadow-lg overflow-hidden"
+                >
+                  <img
+                    src={post.thumbnail}
+                    alt="Tech Image"
+                    className="w-full h-48 object-cover"
+                  />
+                  <div className="p-4">
+                    <span className="inline-block px-3 py-1 text-sm font-semibold text-white bg-gray-600 rounded-full mb-3">
+                      {post.category}
+                    </span>
+                    <h2 className="text-lg font-bold text-gray-800 mb-2">
+                      {post.postTitle}
+                    </h2>
+                    <p className="text-gray-600 text-sm mb-4">
+                      {post.description}
+                    </p>
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center">
+                        <div className="ml-3">
+                          <p className="text-sm font-medium text-gray-800">
+                            Deadline
+                          </p>
+                          <p className="text-xs text-gray-500">
+                            {post.deadline}{" "}
+                          </p>
+                        </div>
+                      </div>
+                      <div>
+                        <Link to={`/detailsPost/${post._id}`}>
+                          <button className="btn btn-sm text-white hover:bg-[#2B3440] bg-[#2B3440]">
+                            View Details
+                          </button>
+                        </Link>
+                      </div>
                     </div>
                   </div>
-                  <div>
-                    <Link to={`/detailsPost/${post._id}`}>
-                      <button className="btn btn-sm text-white hover:bg-[#2B3440] bg-[#2B3440]">
-                        View Details
-                      </button>
-                    </Link>
-                  </div>
                 </div>
-              </div>
+              ))}
             </div>
-          )) 
-          }
-        </div>
-        :
-        <table className="table">
-          <thead>
-              <tr>
-                <th>Title</th>
-                <th>Category</th>
-                <th>Deadline</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              {/* row 1 */}
-              {
-                posts.map((post) => (
+          ) : (
+            <table className="table">
+              <thead>
+                <tr>
+                  <th>Title</th>
+                  <th>Category</th>
+                  <th>Deadline</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                {/* row 1 */}
+                {posts.map((post) => (
                   <tr key={post._id}>
                     <td>
                       <div className="flex items-center gap-3">
@@ -150,20 +153,16 @@ const AllPost = () => {
                     </th>
                   </tr>
                 ))}
-            </tbody>
-        </table>
-      )
-    }
-    {
-      posts.length < 1 && <div className="w-full h-400px flex justify-center items-center">
-      <span className="loading loading-bars loading-lg"></span>
-    </div>
-    }
+              </tbody>
+            </table>
+          ))}
+        {posts.length < 1 && (
+          <div className="w-full h-400px flex justify-center items-center">
+            <span className="loading loading-bars loading-lg"></span>
+          </div>
+        )}
 
-
-{/* previous model */}
-        
-    
+        {/* previous model */}
       </div>
     </div>
   );

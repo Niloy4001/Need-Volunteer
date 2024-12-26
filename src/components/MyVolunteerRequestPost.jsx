@@ -3,21 +3,20 @@ import { AuthContext } from "../context/AuthProvider";
 import { MdCancel } from "react-icons/md";
 import Swal from "sweetalert2";
 import axios from "axios";
+import useAxiosSecure from "../hooks/useAxiosSecure";
 
 const MyVolunteerRequestPost = () => {
+  const axiosSecure = useAxiosSecure();
   const { user } = useContext(AuthContext);
   const [posts, setPosts] = useState([]);
-  
 
   useEffect(() => {
-
-      axios.get(`https://need-volunteer-server.vercel.app/myRequestedPost?email=${user.email}`,{withCredentials:true})
-      .then(res => setPosts(res.data))
+    axiosSecure
+      .get(`myRequestedPost?email=${user.email}`)
+      .then((res) => setPosts(res.data));
   }, []);
 
-
-
-  const handleDelete = (id,postId) => {
+  const handleDelete = (id, postId) => {
     Swal.fire({
       title: "Are you sure?",
       text: "You won't be able to revert this!",
@@ -29,7 +28,9 @@ const MyVolunteerRequestPost = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         axios
-          .delete(`https://need-volunteer-server.vercel.app/deleteRequestedPost/${id}?postId=${postId}`)
+          .delete(
+            `https://need-volunteer-server.vercel.app/deleteRequestedPost/${id}?postId=${postId}`
+          )
           .then(function (response) {
             if (response.data.deletedCount === 1) {
               Swal.fire({
@@ -40,20 +41,18 @@ const MyVolunteerRequestPost = () => {
               const remaining = posts.filter((post) => post._id !== id);
               setPosts(remaining);
             }
-            (response.data);
+            response.data;
           })
-          .catch(function (error) {
-            
-          });
-
-      
+          .catch(function (error) {});
       }
     });
   };
 
   return (
     <div>
-      <h1 className="text-left text-xl md:text-2xl lg:text-3xl font-bold mb-6">My Volunteer Request Post</h1>
+      <h1 className="text-left text-xl md:text-2xl lg:text-3xl font-bold mb-6">
+        My Volunteer Request Post
+      </h1>
       <div className="overflow-x-auto">
         <table className="table">
           {/* head */}
@@ -94,14 +93,21 @@ const MyVolunteerRequestPost = () => {
                   </td>
                   <td>{post.status}</td>
                   <th className="space-x-1">
-                   <button 
-                   onClick={() => handleDelete(post._id,post.postId)}
-                   className="btn btn-ghost btn-xs text-xl hover:text-red-500"><MdCancel /></button>
+                    <button
+                      onClick={() => handleDelete(post._id, post.postId)}
+                      className="btn btn-ghost btn-xs text-xl hover:text-red-500"
+                    >
+                      <MdCancel />
+                    </button>
                   </th>
                 </tr>
               ))}
             {posts.length < 1 && (
-              <tr><td className="col-span-4 text-center font-medium text-base md:text-xl lg:text-2xl">You did not request to become a Volunteer</td></tr>
+              <tr>
+                <td className="col-span-4 text-center font-medium text-base md:text-xl lg:text-2xl">
+                  You did not request to become a Volunteer
+                </td>
+              </tr>
             )}
           </tbody>
         </table>

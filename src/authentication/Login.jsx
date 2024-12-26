@@ -1,11 +1,12 @@
 import React, { useContext, useRef, useState } from "react";
 import { FaGoogle } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { Helmet } from "react-helmet";
+
 import { HiOutlineEyeOff } from "react-icons/hi";
 import { RiEyeLine } from "react-icons/ri";
 import { AuthContext } from "../context/AuthProvider";
-import background from "../assets/cool-background.png"
+import background from "../assets/cool-background.png";
+import { Helmet } from "react-helmet-async";
 const LogIn = () => {
   const { logInByGoogle, logInByEmailPassword, user, setForgotEmail } =
     useContext(AuthContext);
@@ -56,7 +57,9 @@ const LogIn = () => {
       <div className="flex justify-center items-center py-14 px-3">
         <div className="card bg-base-100 w-full max-w-lg p-4 shrink-0 shadow-2xl">
           {/* title */}
-          <h1 className="text-left text-xl md:text-2xl lg:text-3xl font-bold mb-6">Log In</h1>
+          <h1 className="text-left text-xl md:text-2xl lg:text-3xl font-bold mb-6">
+            Log In
+          </h1>
           {/* google log in */}
           <div className="w-full px-8">
             <button

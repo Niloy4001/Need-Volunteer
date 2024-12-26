@@ -13,29 +13,28 @@ const VolunteerNeedsNow = () => {
       <h1 className="text-left text-xl md:text-2xl lg:text-3xl font-bold mb-6">
         Volunteer Needs Now
       </h1>
-      {posts.length > 0 && 
-       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        {
-          posts.map((post) => (
-            <div key={post._id} className="w-full bg-white rounded-xl shadow-lg overflow-hidden">
+      {posts.length > 0 && (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {posts.map((post) => (
+            <div
+              key={post._id}
+              className="w-full bg-white rounded-xl shadow-lg overflow-hidden"
+            >
               <img
                 src={post.thumbnail}
                 alt="Tech Image"
                 className="w-full h-48 object-cover"
               />
               <div className="p-4">
-                <span className="inline-block px-3 py-1 text-sm font-semibold text-white bg-blue-500 rounded-full mb-3">
+                <span className="inline-block px-3 py-1 text-sm font-semibold text-white bg-gray-600 rounded-full mb-3">
                   {post.category}
                 </span>
                 <h2 className="text-lg font-bold text-gray-800 mb-2">
                   {post.postTitle}
                 </h2>
-                <p className="text-gray-600 text-sm mb-4">
-                  {post.description}
-                </p>
+                <p className="text-gray-600 text-sm mb-4">{post.description}</p>
                 <div className="flex items-center justify-between">
                   <div className="flex items-center">
-                    
                     <div className="ml-3">
                       <p className="text-sm font-medium text-gray-800">
                         Deadline
@@ -53,22 +52,22 @@ const VolunteerNeedsNow = () => {
                 </div>
               </div>
             </div>
-          ))
-        }
-       </div>
-      }
-      {
-        posts.length < 1 &&
+          ))}
+        </div>
+      )}
+      {posts.length < 1 && (
         <div className="w-full h-400px flex justify-center items-center">
-        <span className="loading loading-bars loading-lg"></span>
-      </div>
-      }
+          <span className="loading loading-bars loading-lg"></span>
+        </div>
+      )}
       <div className="flex justify-center py-6">
-        <Link to={"/allPost"} className="btn btn-md bg-[#2B3440] hover:bg-[#2B3440] text-white mt-7">
+        <Link
+          to={"/allPost"}
+          className="btn btn-md bg-[#2B3440] hover:bg-[#2B3440] text-white mt-7"
+        >
           <button>See All</button>
         </Link>
       </div>
-
     </div>
   );
 };
