@@ -111,50 +111,52 @@ const AllPost = () => {
               ))}
             </div>
           ) : (
-            <table className="table">
-              <thead>
-                <tr>
-                  <th>Title</th>
-                  <th>Category</th>
-                  <th>Deadline</th>
-                  <th>Action</th>
-                </tr>
-              </thead>
-              <tbody>
-                {/* row 1 */}
-                {posts.map((post) => (
-                  <tr key={post._id}>
-                    <td>
-                      <div className="flex items-center gap-3">
-                        <div className="avatar">
-                          <div className="mask mask-squircle h-12 w-12">
-                            <img src={post.thumbnail} alt={post.postTitle} />
-                          </div>
-                        </div>
-                        <div>
-                          <div className="font-bold">{post.postTitle} </div>
-                          <div className="text-sm opacity-50">
-                            {post.location}
-                          </div>
-                        </div>
-                      </div>
-                    </td>
-                    <td>
-                      {post.category}
-                      <br />
-                    </td>
-                    <td>{post.deadline}</td>
-                    <th className="space-x-1">
-                      <Link to={`/detailsPost/${post._id}`}>
-                        <button className="w-full bg-[#2B3440] text-white py-2 rounded-lg hover:bg-[#2B3440] transition">
-                          View Details
-                        </button>
-                      </Link>
-                    </th>
+            <div className="overflow-x-auto">
+              <table className="table">
+                <thead>
+                  <tr>
+                    <th>Title</th>
+                    <th>Category</th>
+                    <th>Deadline</th>
+                    <th>Action</th>
                   </tr>
-                ))}
-              </tbody>
-            </table>
+                </thead>
+                <tbody>
+                  {/* row 1 */}
+                  {posts.map((post) => (
+                    <tr key={post._id}>
+                      <td>
+                        <div className="flex items-center gap-3">
+                          <div className="avatar">
+                            <div className="mask mask-squircle h-12 w-12">
+                              <img src={post.thumbnail} alt={post.postTitle} />
+                            </div>
+                          </div>
+                          <div>
+                            <div className="font-bold">{post.postTitle} </div>
+                            <div className="text-sm opacity-50">
+                              {post.location}
+                            </div>
+                          </div>
+                        </div>
+                      </td>
+                      <td>
+                        {post.category}
+                        <br />
+                      </td>
+                      <td>{post.deadline}</td>
+                      <th className="space-x-1">
+                        <Link to={`/detailsPost/${post._id}`}>
+                          <button className="w-full bg-[#2B3440]  text-white btn rounded-lg hover:bg-[#2B3440] transition">
+                            View Details
+                          </button>
+                        </Link>
+                      </th>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           ))}
         {posts.length < 1 && (
           <div className="w-full h-400px flex justify-center items-center">
@@ -162,7 +164,7 @@ const AllPost = () => {
           </div>
         )}
 
-        {/* previous model */}
+      
       </div>
     </div>
   );
