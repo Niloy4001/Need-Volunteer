@@ -40,7 +40,7 @@ const OurBlogs = () => {
                   <div className="btn bg-[#2B3440] btn-sm text-white collapse-title  ">
                     Read...
                   </div>
-                  <div className="collapse-content  text-primary-content ">
+                  <div className="collapse-content  text-black ">
                     <p>{blog.description}</p>
                   </div>
                 </div>

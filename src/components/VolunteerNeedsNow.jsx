@@ -13,8 +13,9 @@ const VolunteerNeedsNow = () => {
       <h1 className="text-left text-xl md:text-2xl lg:text-3xl font-bold mb-6">
         Volunteer Needs Now
       </h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        {posts.length > 0 ? (
+      {posts.length > 0 && 
+       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {
           posts.map((post) => (
             <div key={post._id} className="w-full bg-white rounded-xl shadow-lg overflow-hidden">
               <img
@@ -53,12 +54,15 @@ const VolunteerNeedsNow = () => {
               </div>
             </div>
           ))
-        ) : (
-          <div className="min-h-40 flex justify-center items-center">
-            <span className="loading loading-spinner loading-lg"></span>
-          </div>
-        )}
+        }
+       </div>
+      }
+      {
+        posts.length < 1 &&
+        <div className="w-full h-400px flex justify-center items-center">
+        <span className="loading loading-bars loading-lg"></span>
       </div>
+      }
       <div className="flex justify-center py-6">
         <Link to={"/allPost"} className="btn btn-md bg-[#2B3440] hover:bg-[#2B3440] text-white mt-7">
           <button>See All</button>

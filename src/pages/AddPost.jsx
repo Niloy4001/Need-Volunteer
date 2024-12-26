@@ -25,9 +25,6 @@ const AddPost = () => {
     };
    
    
-
-    // axios
-    //   .post(`https://need-volunteer-server.vercel.app/addPost?email=${user.email}`, obj,{withCredentials:true})
     axiosSecure
       .post(`addPost?email=${user.email}`, obj)
       .then(function (response) {

@@ -28,11 +28,11 @@ const AllPost = () => {
           </h1>
           {/* search functionality */}
           <div className="flex items-center gap-2">
-            <label className="input input-bordered flex items-center gap-2">
+            <label className="input input-bordered flex items-center gap-2 border border-solid border-[#2B3440]">
               <input
                 onChange={(e) => setSearch(e.target.value)}
                 type="text"
-                className="grow"
+                className="grow "
                 placeholder="Search"
               />
               <svg
@@ -58,65 +58,57 @@ const AllPost = () => {
         </div>
 
         {/* all post */}
-        {grid === "grid" ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {
-              posts.length > 0 &&
-                posts.map((post) => (
-                  <div
-                    key={post._id}
-                    className="w-full bg-white rounded-xl shadow-lg overflow-hidden"
-                  >
-                    <img
-                      src={post.thumbnail}
-                      alt="Tech Image"
-                      className="w-full h-48 object-cover"
-                    />
-                    <div className="p-4">
-                      <span className="inline-block px-3 py-1 text-sm font-semibold text-white bg-blue-500 rounded-full mb-3">
-                        {post.category}
-                      </span>
-                      <h2 className="text-lg font-bold text-gray-800 mb-2">
-                        {post.postTitle}
-                      </h2>
-                      <p className="text-gray-600 text-sm mb-4">
-                        {post.description}
+    {
+      posts.length > 0 && (
+        grid === "grid" ? <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {
+           posts.map((post) => (
+            <div
+              key={post._id}
+              className="w-full bg-white rounded-xl shadow-lg overflow-hidden"
+            >
+              <img
+                src={post.thumbnail}
+                alt="Tech Image"
+                className="w-full h-48 object-cover"
+              />
+              <div className="p-4">
+                <span className="inline-block px-3 py-1 text-sm font-semibold text-white bg-gray-600 rounded-full mb-3">
+                  {post.category}
+                </span>
+                <h2 className="text-lg font-bold text-gray-800 mb-2">
+                  {post.postTitle}
+                </h2>
+                <p className="text-gray-600 text-sm mb-4">
+                  {post.description}
+                </p>
+                <div className="flex items-center justify-between">
+                  <div className="flex items-center">
+                    <div className="ml-3">
+                      <p className="text-sm font-medium text-gray-800">
+                        Deadline
                       </p>
-                      <div className="flex items-center justify-between">
-                        <div className="flex items-center">
-                          <div className="ml-3">
-                            <p className="text-sm font-medium text-gray-800">
-                              Deadline
-                            </p>
-                            <p className="text-xs text-gray-500">
-                              {post.deadline}{" "}
-                            </p>
-                          </div>
-                        </div>
-                        <div>
-                          <Link to={`/detailsPost/${post._id}`}>
-                            <button className="btn btn-sm text-white hover:bg-[#2B3440] bg-[#2B3440]">
-                              View Details
-                            </button>
-                          </Link>
-                        </div>
-                      </div>
+                      <p className="text-xs text-gray-500">
+                        {post.deadline}{" "}
+                      </p>
                     </div>
                   </div>
-                ))
-
-              // :
-              //  (
-              //   <div>
-              //     <span className="loading loading-ring loading-lg"></span>
-              //   </div>
-              // )
-            }
-          </div>
-        ) : (
-          <table className="table">
-            {/* head */}
-            <thead>
+                  <div>
+                    <Link to={`/detailsPost/${post._id}`}>
+                      <button className="btn btn-sm text-white hover:bg-[#2B3440] bg-[#2B3440]">
+                        View Details
+                      </button>
+                    </Link>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )) 
+          }
+        </div>
+        :
+        <table className="table">
+          <thead>
               <tr>
                 <th>Title</th>
                 <th>Category</th>
@@ -126,7 +118,7 @@ const AllPost = () => {
             </thead>
             <tbody>
               {/* row 1 */}
-              {posts.length > 0 &&
+              {
                 posts.map((post) => (
                   <tr key={post._id}>
                     <td>
@@ -151,26 +143,27 @@ const AllPost = () => {
                     <td>{post.deadline}</td>
                     <th className="space-x-1">
                       <Link to={`/detailsPost/${post._id}`}>
-                        <button className="w-full bg-blue-500 text-white py-2 rounded-lg hover:bg-blue-600 transition">
+                        <button className="w-full bg-[#2B3440] text-white py-2 rounded-lg hover:bg-[#2B3440] transition">
                           View Details
                         </button>
                       </Link>
                     </th>
                   </tr>
                 ))}
-              {posts.length < 1 && (
-                <tr>
-                  <td className="col-span-4 text-center font-medium text-lg md:text-2xl lg:text-3xl">
-                    You did not request to become a Volunteer
-                  </td>
-                </tr>
-              )}
             </tbody>
-          </table>
-        )}
-        {/* grid */}
+        </table>
+      )
+    }
+    {
+      posts.length < 1 && <div className="w-full h-400px flex justify-center items-center">
+      <span className="loading loading-bars loading-lg"></span>
+    </div>
+    }
 
-        {/* table */}
+
+{/* previous model */}
+        
+    
       </div>
     </div>
   );

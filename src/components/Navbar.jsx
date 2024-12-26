@@ -12,7 +12,7 @@ const Navbar = () => {
         <NavLink
           to="/"
           className={({ isActive }) =>
-            isActive ? "active-class" : "default-class"
+            isActive ? "active-class" : "default-class font-medium"
           }
         >
           Home
@@ -22,14 +22,14 @@ const Navbar = () => {
         <NavLink
           to="/allPost"
           className={({ isActive }) =>
-            isActive ? "active-class" : "default-class"
+            isActive ? "active-class" : "default-class font-medium"
           }
         >
           All Volunteer Need Posts
         </NavLink>
       </li>
       <li className="dropdown dropdown-bottom">
-        <div tabIndex={0} role="button" className=" font-normal btn-sm">
+        <div tabIndex={0} role="button" className=" font-medium btn-sm">
           My Profile
         </div>
         <ul
@@ -40,7 +40,7 @@ const Navbar = () => {
             <NavLink
               to="/addPost"
               className={({ isActive }) =>
-                isActive ? "active-class" : "default-class"
+                isActive ? "active-class" : "default-class font-medium"
               }
             >
               Add Volunteer need Post
@@ -50,7 +50,7 @@ const Navbar = () => {
             <NavLink
               to="/manageMyPost"
               className={({ isActive }) =>
-                isActive ? "active-class" : "default-class"
+                isActive ? "active-class" : "default-class font-medium"
               }
             >
               Manage My Posts
