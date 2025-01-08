@@ -9,6 +9,7 @@ const Navbar = () => {
   const links = (
     <>
       <li>
+        
         <NavLink
           to="/"
           className={({ isActive }) =>
