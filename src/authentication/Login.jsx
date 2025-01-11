@@ -20,9 +20,10 @@ const LogIn = () => {
 
   // handle google log in
   const handleGoogleLogIn = () => {
-    setErrorMessage("");
+   
     logInByGoogle()
       .then((res) => {
+        
         navigate(state ? `${state}` : "/");
       })
       .catch((err) => setErrorMessage(err.message));

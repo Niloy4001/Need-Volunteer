@@ -58,13 +58,17 @@ const AuthProvider = ({ children }) => {
           { withCredentials: true }
         );
         setLoading(false);
+        
       } else {
         setUser(null);
         await axios.get("https://need-volunteer-server.vercel.app/logout", {
           withCredentials: true,
         });
+        setLoading(false);
       }
-    });
+    }
+  
+  );
 
     return () => {
       unsubscribe();
