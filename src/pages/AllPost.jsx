@@ -9,7 +9,24 @@ const AllPost = () => {
   const [posts, setPosts] = useState([]);
   const [search, setSearch] = useState("");
   const [grid, setGrid] = useState("grid");
-  search;
+  
+
+  const handleSort = (status) => {
+    if (status === "asc") {
+      const sorted = [...posts].sort(
+        (a, b) => a.volunteersNeeded - b.volunteersNeeded
+      );
+      setPosts(sorted);
+    }
+    if (status === "dsc") {
+      const sorted = [...posts].sort(
+        (a, b) => b.volunteersNeeded - a.volunteersNeeded
+      );
+      setPosts(sorted);
+    }
+
+   
+  };
 
   useEffect(() => {
     fetch(`https://need-volunteer-server.vercel.app/allPost?search=${search}`)
@@ -22,13 +39,33 @@ const AllPost = () => {
         <title>All Post | NEED VOLUNTEER</title>
       </Helmet>
       <div className="w-[90%] mx-auto">
-        <div className="flex justify-between flex-col md:flex-row py-6">
-          <h1 className=" text-left text-xl md:text-2xl lg:text-3xl font-bold mb-6">
+        <div className="flex justify-between items-start md:items-center gap-4 flex-col md:flex-row py-6">
+          <h1 className=" text-left text-xl md:text-2xl lg:text-3xl font-bold mb-6 text-text">
             All Volunteer Need Post
           </h1>
+          {/* sort */}
+          {/* <button
+            onClick={() => handleSort()}
+            className="btn btn-sm bg-primary text-white hover:bg-primary"
+          >
+            Sort By Volunteer Need Number
+          </button> */}
+          <details className="dropdown">
+            <summary className="btn btn-sm bg-primary text-white hover:bg-primary m-1">
+              Sort By Volunteer Need Number
+            </summary>
+            <ul className="menu dropdown-content bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
+              <button onClick={() => handleSort("asc")} className="btn btn-sm">
+                <li>(A - Z) /ASC</li>
+              </button>
+              <button onClick={() => handleSort("dsc")} className="btn btn-sm">
+                <li>(Z - A) /DSC</li>
+              </button>
+            </ul>
+          </details>
           {/* search functionality */}
           <div className="flex items-center gap-2">
-            <label className="input input-bordered flex items-center gap-2 border border-solid border-[#2B3440]">
+            <label className="input input-bordered flex items-center gap-2 border border-solid border-text">
               <input
                 onChange={(e) => setSearch(e.target.value)}
                 type="text"
@@ -49,13 +86,13 @@ const AllPost = () => {
               </svg>
             </label>
             <p
-              className="text-xl cursor-pointer"
+              className="text-xl cursor-pointer text-text"
               onClick={() => setGrid("grid")}
             >
               <BsGrid3X3GapFill />
             </p>
             <p
-              className="text-2xl cursor-pointer"
+              className="text-2xl cursor-pointer text-text"
               onClick={() => setGrid("table")}
             >
               <PiTableBold />
@@ -66,7 +103,7 @@ const AllPost = () => {
         {/* all post */}
         {posts.length > 0 &&
           (grid === "grid" ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {posts.map((post) => (
                 <div
                   key={post._id}
@@ -77,30 +114,33 @@ const AllPost = () => {
                     alt="Tech Image"
                     className="w-full h-48 object-cover"
                   />
-                  <div className="p-4">
-                    <span className="inline-block px-3 py-1 text-sm font-semibold text-white bg-gray-600 rounded-full mb-3">
+                  <div className="p-4 flex flex-col h-[200px] relative justify-between">
+                    <span className="absolute -top-44 right-2 px-2 py-1 text-sm font-semibold text-white bg-secondary rounded-full mb-3">
                       {post.category}
                     </span>
-                    <h2 className="text-lg font-bold text-gray-800 mb-2">
+                    <h2 className="text-lg font-bold text-text mb-2">
                       {post.postTitle}
                     </h2>
-                    <p className="text-gray-600 text-sm mb-4">
+                    <p className="text-secondary text-sm mb-4">
                       {post.description}
+                    </p>
+                    <p className="text-text">
+                      Number of Voulnteer Need: {post.volunteersNeeded}
                     </p>
                     <div className="flex items-center justify-between">
                       <div className="flex items-center">
                         <div className="ml-3">
-                          <p className="text-sm font-medium text-gray-800">
+                          <p className="text-sm font-medium text-primary">
                             Deadline
                           </p>
-                          <p className="text-xs text-gray-500">
+                          <p className="text-xs text-primary">
                             {post.deadline}{" "}
                           </p>
                         </div>
                       </div>
                       <div>
                         <Link to={`/detailsPost/${post._id}`}>
-                          <button className="btn btn-sm text-white hover:bg-[#2B3440] bg-[#2B3440]">
+                          <button className="btn btn-sm text-white hover:bg-[#2196F3] hover:text-accent bg-[#2196F3]">
                             View Details
                           </button>
                         </Link>
@@ -111,9 +151,9 @@ const AllPost = () => {
               ))}
             </div>
           ) : (
-            <div className="overflow-x-auto">
+            <div className="overflow-x-auto bg-white p-5 rounded-lg">
               <table className="table">
-                <thead>
+                <thead className="bg-primary text-white ">
                   <tr>
                     <th>Title</th>
                     <th>Category</th>
@@ -133,21 +173,23 @@ const AllPost = () => {
                             </div>
                           </div>
                           <div>
-                            <div className="font-bold">{post.postTitle} </div>
+                            <div className="font-bold text-text">
+                              {post.postTitle}{" "}
+                            </div>
                             <div className="text-sm opacity-50">
                               {post.location}
                             </div>
                           </div>
                         </div>
                       </td>
-                      <td>
+                      <td className="text-text">
                         {post.category}
                         <br />
                       </td>
-                      <td>{post.deadline}</td>
+                      <td className="text-text">{post.deadline}</td>
                       <th className="space-x-1">
                         <Link to={`/detailsPost/${post._id}`}>
-                          <button className="w-full bg-[#2B3440]  text-white btn rounded-lg hover:bg-[#2B3440] transition">
+                          <button className="w-full  btn rounded-lg text-white hover:bg-[#2196F3] hover:text-accent bg-[#2196F3] transition">
                             View Details
                           </button>
                         </Link>
@@ -163,8 +205,6 @@ const AllPost = () => {
             <span className="loading loading-bars loading-lg"></span>
           </div>
         )}
-
-      
       </div>
     </div>
   );

@@ -50,23 +50,23 @@ const LogIn = () => {
     navigate("/auth/forgot");
   };
   return (
-    <div>
+    <div className="w-[90%] mx-auto">
       <Helmet>
         <title>Login | NEED VOLUNTEER</title>
       </Helmet>
-      <div className="flex justify-center items-center py-14 px-3">
-        <div className="card bg-base-100 w-full max-w-lg p-4 shrink-0 shadow-2xl">
+      <div className="grid md:grid-cols-2 justify-center grid-cols-1  items-center py-14 px-3 text-text">
+        <div className="card  max-w-lg  p-4 shrink-0 shadow-2xl">
           {/* title */}
-          <h1 className="text-left text-xl md:text-2xl lg:text-3xl font-bold mb-6">
+          <h1 className=" text-xl md:text-2xl lg:text-3xl font-bold mb-6 text-center">
             Log In
           </h1>
           {/* google log in */}
           <div className="w-full px-8">
             <button
               onClick={handleGoogleLogIn}
-              className="btn text-[10px] md:text-sm border border-solid border-[#2B3440] hover:text-white hover:bg-[#2B3440] w-full flex items-center justify-center space-x-2 mb-2"
+              className="btn text-[10px] md:text-sm border border-solid border-text hover:text-white hover:bg-text w-full flex items-center justify-center space-x-2 mb-2"
             >
-              <FaGoogle className="text-[#2B3440] " />
+              <FaGoogle className="text-text " />
               <span>Login with Google</span>
             </button>
           </div>
@@ -75,7 +75,7 @@ const LogIn = () => {
             <div className="divider my-0">OR</div>
           </div>
           {/* form  */}
-          <form className="card-body" onSubmit={handleSubmit}>
+          <form className="card-body text-text" onSubmit={handleSubmit}>
             <div className="form-control">
               <label className="label">
                 <span className="label-text">Email</span>
@@ -107,7 +107,7 @@ const LogIn = () => {
               </span>
             </div>
             <div className="form-control mt-6">
-              <button className="btn shadow-2xl text-white bg-gradient-to-b from-[#2B3440] to-[#2B3440]">
+              <button className="btn shadow-2xl text-white hover:bg-primary bg-primary">
                 Login
               </button>
             </div>

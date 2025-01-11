@@ -9,7 +9,6 @@ const Navbar = () => {
   const links = (
     <>
       <li>
-        
         <NavLink
           to="/"
           className={({ isActive }) =>
@@ -29,13 +28,33 @@ const Navbar = () => {
           All Volunteer Need Posts
         </NavLink>
       </li>
+      <li>
+        <NavLink
+          to="/contact"
+          className={({ isActive }) =>
+            isActive ? "active-class" : "default-class font-medium"
+          }
+        >
+          Contact
+        </NavLink>
+      </li>
+      <li>
+        <NavLink
+          to="/about"
+          className={({ isActive }) =>
+            isActive ? "active-class" : "default-class font-medium"
+          }
+        >
+          About Us
+        </NavLink>
+      </li>
       <li className="dropdown dropdown-bottom">
         <div tabIndex={0} role="button" className=" font-medium btn-sm">
           My Profile
         </div>
         <ul
           tabIndex={0}
-          className="dropdown-content menu bg-base-100 rounded-box z-[10] w-52 p-2 shadow"
+          className="dropdown-content menu bg-primary rounded-box z-[10] w-52 p-2 shadow"
         >
           <li>
             <NavLink
@@ -47,6 +66,7 @@ const Navbar = () => {
               Add Volunteer need Post
             </NavLink>
           </li>
+
           <li>
             <NavLink
               to="/manageMyPost"
@@ -70,32 +90,32 @@ const Navbar = () => {
     navigate("/");
   };
 
-  // implement light dark theme mode
-  const [mode, setMode] = useState(getFromLs);
+  // // implement light dark theme mode
+  // const [mode, setMode] = useState(getFromLs);
 
-  useEffect(() => {
-    // if (mode === "light") {
-    // document.getElementById("html").setAttribute('data-theme', mode);
-    document.documentElement.setAttribute("data-theme", mode);
-    // }
-    // if (mode === "dark") {
-    //   document.getElementById("html").setAttribute('data-theme', 'dark');
-    // }
-  }, [mode]);
+  // useEffect(() => {
+  //   // if (mode === "light") {
+  //   // document.getElementById("html").setAttribute('data-theme', mode);
+  //   document.documentElement.setAttribute("data-theme", mode);
+  //   // }
+  //   // if (mode === "dark") {
+  //   //   document.getElementById("html").setAttribute('data-theme', 'dark');
+  //   // }
+  // }, [mode]);
 
-  const handleMode = () => {
-    if (mode === "light") {
-      localStorage.setItem("theme", "dark");
-      setMode(getFromLs);
-    }
-    if (mode === "dark") {
-      localStorage.setItem("theme", "light");
-      setMode(getFromLs);
-    }
-  };
+  // const handleMode = () => {
+  //   if (mode === "light") {
+  //     localStorage.setItem("theme", "dark");
+  //     setMode(getFromLs);
+  //   }
+  //   if (mode === "dark") {
+  //     localStorage.setItem("theme", "light");
+  //     setMode(getFromLs);
+  //   }
+  // };
 
   return (
-    <div>
+    <div className="bg-primary text-white sticky top-0 z-10">
       <div className="md:hidden">
         <Link
           to={"/"}
@@ -141,14 +161,14 @@ const Navbar = () => {
           <ul className="menu menu-horizontal px-1">{links}</ul>
         </div>
         <div className="navbar-end gap-1">
-          <div
+          {/* <div
             onClick={() => handleMode()}
             className={`shadow-2xl ${
               mode === "light" ? "text-[#2B3440]" : "text-white"
             } border-[#2B3440]  btn btn-sm   rounded-full h-0`}
           >
             {mode === "light" ? <FaRegMoon /> : <MdOutlineLightMode />}
-          </div>
+          </div> */}
           {user ? (
             <>
               {/* Avatar */}
@@ -171,7 +191,7 @@ const Navbar = () => {
                 </div>
                 <ul
                   tabIndex={0}
-                  className="menu menu-sm dropdown-content bg-base-100 rounded-box z-10 mt-3 w-52 p-2 shadow"
+                  className="menu menu-sm dropdown-content bg-primary rounded-box z-10 mt-3 w-52 p-2 shadow"
                 >
                   <li>
                     <p>{user?.displayName}</p>

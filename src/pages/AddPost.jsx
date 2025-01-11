@@ -32,7 +32,7 @@ const AddPost = () => {
           Swal.fire({
             title: "Post Added Successfully",
             icon: "success",
-            confirmButtonColor: "#2B3440",
+            confirmButtonColor: "#2196F3",
           });
         }
         e.target.reset();
@@ -48,13 +48,13 @@ const AddPost = () => {
         onSubmit={handleAdd}
         className="max-w-lg mx-auto p-4 border border-gray-200 shadow rounded"
       >
-        <h2 className="text-center text-xl md:text-2xl lg:text-3xl font-bold mb-6">
+        <h2 className="text-center text-xl md:text-2xl lg:text-3xl font-bold mb-6 text-text">
           Add Volunteer Post
         </h2>
 
         {/* Thumbnail */}
         <div className="mb-4">
-          <label className="block mb-2 font-medium">Thumbnail URL</label>
+          <label className="block mb-2 font-medium text-text">Thumbnail URL</label>
           <input
             type="text"
             name="thumbnail"
@@ -66,7 +66,7 @@ const AddPost = () => {
 
         {/* Post Title */}
         <div className="mb-4">
-          <label className="block mb-2 font-medium">Post Title</label>
+          <label className="block mb-2 font-medium text-text">Post Title</label>
           <input
             type="text"
             name="postTitle"
@@ -78,7 +78,7 @@ const AddPost = () => {
 
         {/* Description */}
         <div className="mb-4">
-          <label className="block mb-2 font-medium">Description</label>
+          <label className="block mb-2 font-medium text-text">Description</label>
           <textarea
             name="description"
             placeholder="Enter description"
@@ -89,7 +89,7 @@ const AddPost = () => {
 
         {/* Category */}
         <div className="mb-4">
-          <label className="block mb-2 font-medium">Category</label>
+          <label className="block mb-2 font-medium text-text">Category</label>
           <select
             name="category"
             className="w-full border border-gray-300 rounded px-3 py-2"
@@ -105,7 +105,7 @@ const AddPost = () => {
 
         {/* Location */}
         <div className="mb-4">
-          <label className="block mb-2 font-medium">Location</label>
+          <label className="block mb-2 font-medium text-text">Location</label>
           <input
             type="text"
             name="location"
@@ -117,7 +117,7 @@ const AddPost = () => {
 
         {/* Number of Volunteers Needed */}
         <div className="mb-4">
-          <label className="block mb-2 font-medium">
+          <label className="block mb-2 font-medium text-text">
             No. of Volunteers Needed
           </label>
           <input
@@ -131,7 +131,7 @@ const AddPost = () => {
 
         {/* Deadline */}
         <div className="mb-4">
-          <label className="block mb-2 font-medium">Deadline</label>
+          <label className="block mb-2 font-medium text-text">Deadline</label>
           <DatePicker
             selected={selectedDate}
             onChange={(date) => setSelectedDate(date)}
@@ -143,7 +143,7 @@ const AddPost = () => {
 
         {/* Organizer Name and Email (Read-Only) */}
         <div className="mb-4">
-          <label className="block mb-2 font-medium">Organizer Name</label>
+          <label className="block mb-2 font-medium text-text">Organizer Name</label>
           <input
             type="text"
             defaultValue={user?.displayName}
@@ -152,7 +152,7 @@ const AddPost = () => {
           />
         </div>
         <div className="mb-4">
-          <label className="block mb-2 font-medium">Organizer Email</label>
+          <label className="block mb-2 font-medium text-text">Organizer Email</label>
           <input
             type="email"
             defaultValue={user?.email}
@@ -165,7 +165,7 @@ const AddPost = () => {
         <div>
           <button
             type="submit"
-            className="w-full bg-[#2B3440] text-white py-2 rounded-lg hover:bg-[#2B3440] transition"
+            className="w-full py-2 rounded-lgtext-white hover:bg-[#2196F3] hover:text-accent bg-[#2196F3] text-white transition"
           >
             Add Post
           </button>

@@ -12,6 +12,8 @@ import ManageMyPost from "../pages/ManageMyPost";
 import UpdateMyNeedPost from "../pages/UpdateMyNeedPost";
 import Page404 from "../pages/Page404";
 import axios from "axios";
+import ContactUs from "../pages/ContactUs";
+import AboutUs from "../pages/AboutUs";
 
 
 
@@ -27,6 +29,14 @@ const router = createBrowserRouter([
       {
         path: "/allPost",
         element: <AllPost></AllPost>,
+      },
+      {
+        path: "/contact",
+        element: <ContactUs></ContactUs>,
+      },
+      {
+        path: "/about",
+        element: <AboutUs></AboutUs>,
       },
       {
         path: "/addPost",

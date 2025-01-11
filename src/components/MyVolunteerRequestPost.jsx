@@ -50,13 +50,13 @@ const MyVolunteerRequestPost = () => {
 
   return (
     <div>
-      <h1 className="text-left text-xl md:text-2xl lg:text-3xl font-bold mb-6">
+      <h1 className="text-left text-xl md:text-2xl lg:text-3xl font-bold mb-6 text-text">
         My Volunteer Request Post
       </h1>
-      <div className="overflow-x-auto">
+      <div className="overflow-x-auto bg-white p-5">
         <table className="table">
           {/* head */}
-          <thead>
+          <thead className="bg-primary text-white">
             <tr>
               <th>Title</th>
               <th>Organizer</th>
@@ -64,7 +64,7 @@ const MyVolunteerRequestPost = () => {
               <th>Action</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody className="text-text">
             {/* row 1 */}
             {posts.length > 0 &&
               posts.map((post) => (
@@ -87,7 +87,7 @@ const MyVolunteerRequestPost = () => {
                   <td>
                     {post.organizer.name}
                     <br />
-                    <span className="badge badge-ghost badge-sm">
+                    <span className="badge badge-ghost bg-primary text-white badge-sm">
                       {post.organizer.email}
                     </span>
                   </td>

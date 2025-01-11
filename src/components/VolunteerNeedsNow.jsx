@@ -10,7 +10,7 @@ const VolunteerNeedsNow = () => {
   }, []);
   return (
     <div className="w-[90%] mx-auto py-7 md:py-12 lg:py-16">
-      <h1 className="text-left text-xl md:text-2xl lg:text-3xl font-bold mb-6">
+      <h1 className="text-left text-xl md:text-2xl lg:text-3xl text-text font-bold mb-6">
         Volunteer Needs Now
       </h1>
       {posts.length > 0 && (
@@ -18,33 +18,33 @@ const VolunteerNeedsNow = () => {
           {posts.map((post) => (
             <div
               key={post._id}
-              className="w-full bg-white rounded-xl shadow-lg overflow-hidden"
+              className="w-full bg-white rounded-xl shadow-lg shadow-[#E3F2FD] overflow-hidden"
             >
               <img
                 src={post.thumbnail}
                 alt="Tech Image"
                 className="w-full h-48 object-cover"
               />
-              <div className="p-4">
-                <span className="inline-block px-3 py-1 text-sm font-semibold text-white bg-gray-600 rounded-full mb-3">
+              <div className="p-4 flex flex-col h-[200px] relative justify-between">
+                <span className="absolute -top-44 right-2 px-2 py-1 text-sm font-semibold text-white bg-secondary rounded-full mb-3">
                   {post.category}
                 </span>
-                <h2 className="text-lg font-bold text-gray-800 mb-2">
+                <h2 className="text-lg font-bold text-text mb-2">
                   {post.postTitle}
                 </h2>
-                <p className="text-gray-600 text-sm mb-4">{post.description}</p>
+                <p className="text-secondary text-sm mb-4">{post.description}</p>
                 <div className="flex items-center justify-between">
                   <div className="flex items-center">
-                    <div className="ml-3">
-                      <p className="text-sm font-medium text-gray-800">
+                    <div className="ml-3 text-primary">
+                      <p className="text-sm font-medium ">
                         Deadline
                       </p>
-                      <p className="text-xs text-gray-500">{post.deadline} </p>
+                      <p className="text-xs ">{post.deadline} </p>
                     </div>
                   </div>
                   <div>
                     <Link to={`/detailsPost/${post._id}`}>
-                      <button className="btn btn-sm text-white hover:bg-[#2B3440] bg-[#2B3440]">
+                      <button className="btn btn-sm text-white hover:bg-[#2196F3] hover:text-accent bg-[#2196F3]">
                         View Details
                       </button>
                     </Link>
@@ -63,7 +63,7 @@ const VolunteerNeedsNow = () => {
       <div className="flex justify-center py-6">
         <Link
           to={"/allPost"}
-          className="btn btn-md bg-[#2B3440] hover:bg-[#2B3440] text-white mt-7"
+          className="btn btn-md text-white hover:bg-[#2196F3] hover:text-accent bg-[#2196F3] mt-7"
         >
           <button>See All</button>
         </Link>

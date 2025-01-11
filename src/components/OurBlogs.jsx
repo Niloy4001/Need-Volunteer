@@ -11,7 +11,7 @@ const OurBlogs = () => {
 
   return (
     <div className="w-[90%] mx-auto py-7 md:py-12 lg:py-16">
-      <h1 className="text-left text-xl md:text-2xl lg:text-3xl font-bold mb-6">
+      <h1 className="text-left text-xl md:text-2xl lg:text-3xl font-bold mb-6 text-text">
         Our Blogs
       </h1>
       {blogs.length > 0 && (
@@ -27,18 +27,18 @@ const OurBlogs = () => {
                 alt="Post Thumbnail"
               />
               <div className="p-4">
-                <h2 className="text-xl text-black font-semibold mb-2">
+                <h2 className="text-xl text-primary font-semibold mb-2">
                   {blog.title}
                 </h2>
-                <p className="text-sm text-gray-600 mb-4">{blog.subTitle}</p>
-                <p className="text-xs text-gray-500 mb-4">{blog.postedDate}</p>
+                <p className="text-sm  mb-4 text-secondary">{blog.subTitle}</p>
+                <p className="text-xs text-primary mb-4">{blog.postedDate}</p>
 
                 <div className=" collapse">
                   <input type="checkbox" className="peer min-h-0" />
-                  <div className="btn bg-[#2B3440] btn-sm text-white collapse-title  ">
+                  <div className="btn text-white hover:bg-[#2196F3] hover:text-accent bg-[#2196F3] btn-sm  collapse-title  ">
                     Read...
                   </div>
-                  <div className="collapse-content  text-black ">
+                  <div className="collapse-content  text-primary ">
                     <p>{blog.description}</p>
                   </div>
                 </div>

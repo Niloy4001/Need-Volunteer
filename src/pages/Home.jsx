@@ -4,6 +4,7 @@ import VolunteerNeedsNow from "../components/VolunteerNeedsNow";
 import { Helmet } from "react-helmet-async";
 import OurBlogs from "../components/OurBlogs";
 import FAQ from "../components/FAQ";
+import NewsLetter from "../components/NewsLetter";
 
 const Home = () => {
   return (
@@ -15,6 +16,7 @@ const Home = () => {
       <VolunteerNeedsNow></VolunteerNeedsNow>
       <OurBlogs></OurBlogs>
       <FAQ></FAQ>
+      <NewsLetter></NewsLetter>
     </div>
   );
 };

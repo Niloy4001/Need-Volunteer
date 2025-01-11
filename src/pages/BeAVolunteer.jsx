@@ -75,9 +75,9 @@ const BeAVolunteer = () => {
       </Helmet>
       <form
         onSubmit={handleSubmit}
-        className="max-w-lg mx-auto p-4 border border-gray-200 shadow rounded"
+        className="max-w-lg mx-auto p-4 border border-gray-200 shadow rounded text-text"
       >
-        <h2 className="text-center text-xl md:text-2xl lg:text-3xl font-bold mb-6">
+        <h2 className="text-center text-xl md:text-2xl lg:text-3xl font-bold mb-6 text-text">
           Add Volunteer Post
         </h2>
 
@@ -239,7 +239,7 @@ const BeAVolunteer = () => {
         <div>
           <button
             type="submit"
-            className="w-full bg-[#2B3440] text-white py-2 rounded-lg hover:bg-[#2B3440] transition"
+            className="w-full py-2 rounded-lg text-white hover:bg-[#2196F3] hover:text-accent bg-[#2196F3] transition"
           >
             Request
           </button>

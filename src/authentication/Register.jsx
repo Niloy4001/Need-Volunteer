@@ -82,11 +82,11 @@ const Register = () => {
       .catch((err) => setErrorMessage(err.message));
   };
   return (
-    <div>
+    <div className="w-[90%] mx-auto">
       <Helmet>
         <title>Sign Up | NEED VOLUNTEER</title>
       </Helmet>
-      <div className="flex justify-center items-center py-14 px-3">
+      <div className=" items-center py-14 px-3 grid md:grid-cols-2 justify-center grid-cols-1 text-text">
         <div className="card bg-base-100 w-full max-w-lg p-4 shrink-0 shadow-2xl">
           {/* title */}
           <h1 className="text-4xl text-center font-bold mb-5">Register</h1>
@@ -94,9 +94,9 @@ const Register = () => {
           <div className="w-full px-8">
             <button
               onClick={handleGoogleLogIn}
-              className="btn text-[10px] md:text-sm border border-solid border-[#2B3440] hover:text-white hover:bg-gradient-to-b from-[#2B3440] to-[#2B3440] w-full flex items-center justify-center space-x-2 mb-2"
+              className="btn text-[10px] md:text-sm border border-solid border-text hover:text-white hover:bg-gradient-to-b from-text to-text w-full flex items-center justify-center space-x-2 mb-2"
             >
-              <FaGoogle className="text-[#2B3440] " />
+              <FaGoogle className="text-text " />
               <span>Register with Google</span>
             </button>
           </div>
@@ -105,7 +105,7 @@ const Register = () => {
             <div className="divider my-0">OR</div>
           </div>
           {/* form  */}
-          <form className="card-body" onSubmit={handleSubmit}>
+          <form className="card-body text-text" onSubmit={handleSubmit}>
             <div className="form-control">
               <label className="label">
                 <span className="label-text">Name</span>
@@ -161,7 +161,7 @@ const Register = () => {
               </span>
             </div>
             <div className="form-control mt-6">
-              <button className="btn shadow-2xl text-white bg-gradient-to-b from-[#2B3440] to-[#2B3440]">
+              <button className="btn shadow-2xl text-white bg-primary">
                 Register
               </button>
             </div>

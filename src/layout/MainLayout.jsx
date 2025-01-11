@@ -5,7 +5,7 @@ import Footer from "../components/Footer";
 
 const MainLayout = () => {
   return (
-    <div className="font-roboto">
+    <div className="font-roboto bg-background">
       <Navbar></Navbar>
       <div className="min-h-[calc(100vh-292px)]">
         <Outlet></Outlet>

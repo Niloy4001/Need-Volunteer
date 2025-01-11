@@ -50,13 +50,13 @@ const MyVolunteerNeedPost = () => {
   };
   return (
     <div className="mb-9 md:mb-14">
-      <h1 className="text-left text-xl md:text-2xl lg:text-3xl font-bold mb-6">
+      <h1 className="text-left text-xl md:text-2xl lg:text-3xl font-bold mb-6 text-text">
         My Volunteer Need Post
       </h1>
-      <div className="overflow-x-auto">
+      <div className="overflow-x-auto bg-white p-5">
         <table className="table">
           {/* head */}
-          <thead>
+          <thead className="bg-primary text-white">
             <tr>
               <th>Title</th>
               <th>Deadline</th>
@@ -78,7 +78,7 @@ const MyVolunteerNeedPost = () => {
                         </div>
                       </div>
                       <div>
-                        <div className="font-bold">{post.postTitle} </div>
+                        <div className="font-bold text-text">{post.postTitle} </div>
                         <div className="text-sm opacity-50">
                           {post.location}
                         </div>
@@ -86,17 +86,17 @@ const MyVolunteerNeedPost = () => {
                     </div>
                   </td>
                   <td>
-                    <p>{post.deadline}</p>
+                    <p className="text-text">{post.deadline}</p>
                   </td>
-                  <td>
+                  <td className="text-text">
                     {post.organizer.name}
                     <br />
-                    <span className="badge badge-ghost badge-sm">
+                    <span className="badge badge-ghost bg-primary text-white badge-sm">
                       {post.organizer.email}
                     </span>
                   </td>
-                  <td>{post.volunteersNeeded}</td>
-                  <th className="space-x-1">
+                  <td className="text-text">{post.volunteersNeeded}</td>
+                  <th className="space-x-1 text-text">
                     <button
                       onClick={() => handleDelete(post._id)}
                       className="btn btn-ghost btn-xs text-xl hover:text-red-500"

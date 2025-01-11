@@ -17,12 +17,12 @@ const DetailsPost = () => {
   }, []);
 
   return (
-    <div className="w-[90%] mx-auto py-7 md:py-14">
+    <div className="w-[90%] mx-auto py-7 md:py-14 text-text">
       <Helmet>
         <title>Details | NEED VOLUNTEER</title>
       </Helmet>
       {data && (
-        <div className="card lg:card-side bg-base-100 shadow-xl">
+        <div className="card lg:card-side bg-white grid grid-cols-1 lg:grid-cols-3 shadow-xl">
           <figure>
             <img src={data?.thumbnail} alt="Album" />
           </figure>
@@ -57,14 +57,14 @@ const DetailsPost = () => {
             </p>
             <div className="card-actions ">
               <Link to={`/beAVolunteer/${data._id}`}>
-                <button className="w-full bg-[#2B3440] text-white btn hover:bg-[#2B3440] transition">
+                <button className="w-full btn text-white hover:bg-[#2196F3] hover:text-accent bg-[#2196F3] transition">
                   Be a Voluenteer
                 </button>
               </Link>
             </div>
           </div>
           <div className="hidden md:block">
-            <img src={background} alt="" />
+            <img src={background} alt="" className="" />
           </div>
         </div>
       )}
