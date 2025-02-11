@@ -40,7 +40,7 @@ const AddPost = () => {
       .catch(function (error) {});
   };
   return (
-    <div className="py-7 md:py-14">
+    <div className="py-7 md:py-16">
       <Helmet>
         <title>Add Post | NEED VOLUNTEER</title>
       </Helmet>

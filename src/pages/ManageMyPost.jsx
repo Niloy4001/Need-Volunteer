@@ -5,7 +5,7 @@ import { Helmet } from "react-helmet-async";
 
 const ManageMyPost = () => {
   return (
-    <div className="w-[90%] mx-auto py-8 md:py-14">
+    <div className="w-[90%] mx-auto py-8 md:py-16">
       <Helmet>
         <title>Manage my post | NEED VOLUNTEER</title>
       </Helmet>

@@ -3,7 +3,7 @@ import newsletter from '../assets/newsletter.png'
 
 const NewsLetter = () => {
   return (
-    <div className="flex items-center justify-center py-7 md:py-14 w-[90%] mx-auto">
+    <div className="flex items-center justify-center py-7 md:py-16 w-[90%] mx-auto">
       <div className="bg-white p-6  w-full grid grid-cols-1 items-center md:grid-cols-2 py-10">
         {/* left */}
         {/* Icon/Image */}

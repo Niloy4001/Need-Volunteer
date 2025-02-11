@@ -34,7 +34,7 @@ const AllPost = () => {
       .then((data) => setPosts(data));
   }, [search]);
   return (
-    <div className="py-8 md:py-14">
+    <div className="py-8 md:py-16">
       <Helmet>
         <title>All Post | NEED VOLUNTEER</title>
       </Helmet>
