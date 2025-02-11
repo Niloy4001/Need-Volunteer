@@ -7,7 +7,7 @@ const ContactUs = () => {
         {/* left */}
         <div className="bg-white pb-10">
           {/* Header */}
-          <div className="text-center bg-primary text-white py-4">
+          <div className="text-center bg-blue-600 text-white py-4">
             <h2 className="text-2xl font-semibold">
               Get In Touch With Us Now!
             </h2>
@@ -100,7 +100,7 @@ const ContactUs = () => {
         {/* right */}
         <div className="bg-white pb-10">
           {/* Header */}
-          <div className="text-center bg-primary text-white py-4">
+          <div className="text-center bg-blue-600 text-white py-4">
             <h2 className="text-2xl font-semibold">Contact Us</h2>
           </div>
 
@@ -199,7 +199,7 @@ const ContactUs = () => {
               <div className="text-center">
                 <button
                   type="submit"
-                  className="bg-primary text-white px-6 py-2 rounded-md shadow hover:bg-blue-800"
+                  className="bg-blue-600 text-white px-6 py-2 rounded-md shadow hover:bg-blue-800"
                 >
                   Submit
                   <span className="ml-2">

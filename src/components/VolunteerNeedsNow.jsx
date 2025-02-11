@@ -44,7 +44,7 @@ const VolunteerNeedsNow = () => {
                   </div>
                   <div>
                     <Link to={`/detailsPost/${post._id}`}>
-                      <button className="btn btn-sm text-white hover:bg-[#2196F3] hover:text-accent bg-[#2196F3]">
+                      <button className="btn btn-sm text-white hover:bg-blue-600 hover:text-accent bg-blue-600">
                         View Details
                       </button>
                     </Link>
@@ -63,7 +63,7 @@ const VolunteerNeedsNow = () => {
       <div className="flex justify-center py-6">
         <Link
           to={"/allPost"}
-          className="btn btn-md text-white hover:bg-[#2196F3] hover:text-accent bg-[#2196F3] mt-7"
+          className="btn btn-md text-white hover:bg-blue-600 hover:text-accent bg-blue-600 mt-7"
         >
           <button>See All</button>
         </Link>

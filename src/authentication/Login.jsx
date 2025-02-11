@@ -108,7 +108,7 @@ const LogIn = () => {
               </span>
             </div>
             <div className="form-control mt-6">
-              <button className="btn shadow-2xl text-white hover:bg-primary bg-primary">
+              <button className="btn shadow-2xl text-white hover:bg-blue-600 bg-blue-600">
                 Login
               </button>
             </div>

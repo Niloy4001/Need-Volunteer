@@ -57,7 +57,7 @@ const Navbar = () => {
         </div>
         <ul
           tabIndex={0}
-          className="dropdown-content menu bg-primary rounded-box z-[10] w-52 p-2 shadow"
+          className="dropdown-content menu bg-blue-600 rounded-box z-[10] w-52 p-2 shadow"
         >
           <li>
             <NavLink
@@ -97,7 +97,7 @@ const Navbar = () => {
  
 
   return (
-    <div className="bg-primary text-white sticky top-0 z-10">
+    <div className="bg-blue-600 text-white sticky top-0 z-10">
       <div className="md:hidden">
         <Link
           to={"/"}
@@ -127,7 +127,7 @@ const Navbar = () => {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content bg-primary rounded-box z-10 mt-3 w-52 p-2 shadow"
+              className="menu menu-sm dropdown-content bg-blue-600 rounded-box z-10 mt-3 w-52 p-2 shadow"
             >
               {links}
             </ul>
@@ -165,7 +165,7 @@ const Navbar = () => {
                 </div>
                 <ul
                   tabIndex={0}
-                  className="menu menu-sm dropdown-content bg-primary rounded-box z-10 mt-3 w-52 p-2 shadow"
+                  className="menu menu-sm dropdown-content bg-blue-600 rounded-box z-10 mt-3 w-52 p-2 shadow"
                 >
                   <li>
                     <p>{user?.displayName}</p>

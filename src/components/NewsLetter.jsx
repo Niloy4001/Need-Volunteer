@@ -53,7 +53,7 @@ const NewsLetter = () => {
             </div>
             <button
               type="submit"
-              className="w-full bg-primary text-white py-2 px-4 rounded-lg mt-4 hover:bg-primary-dark"
+              className="w-full bg-blue-600 text-white py-2 px-4 rounded-lg mt-4 hover:bg-blue-600-dark"
             >
               Subscribe
             </button>

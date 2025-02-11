@@ -46,12 +46,12 @@ const AllPost = () => {
           {/* sort */}
           {/* <button
             onClick={() => handleSort()}
-            className="btn btn-sm bg-primary text-white hover:bg-primary"
+            className="btn btn-sm bg-blue-600 text-white hover:bg-blue-600"
           >
             Sort By Volunteer Need Number
           </button> */}
           <details className="dropdown">
-            <summary className="btn btn-sm bg-primary text-white hover:bg-primary m-1">
+            <summary className="btn btn-sm bg-blue-600 text-white hover:bg-blue-600 m-1">
               Sort By Volunteer Need Number
             </summary>
             <ul className="menu dropdown-content bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
@@ -140,7 +140,7 @@ const AllPost = () => {
                       </div>
                       <div>
                         <Link to={`/detailsPost/${post._id}`}>
-                          <button className="btn btn-sm text-white hover:bg-[#2196F3] hover:text-accent bg-[#2196F3]">
+                          <button className="btn btn-sm text-white hover:bg-blue-600 hover:text-accent bg-blue-600">
                             View Details
                           </button>
                         </Link>
@@ -153,7 +153,7 @@ const AllPost = () => {
           ) : (
             <div className="overflow-x-auto bg-white p-5 rounded-lg">
               <table className="table">
-                <thead className="bg-primary text-white ">
+                <thead className="bg-blue-600 text-white ">
                   <tr>
                     <th>Title</th>
                     <th>Category</th>
@@ -189,7 +189,7 @@ const AllPost = () => {
                       <td className="text-text">{post.deadline}</td>
                       <th className="space-x-1">
                         <Link to={`/detailsPost/${post._id}`}>
-                          <button className="w-full  btn rounded-lg text-white hover:bg-[#2196F3] hover:text-accent bg-[#2196F3] transition">
+                          <button className="w-full  btn rounded-lg text-white hover:bg-blue-600 hover:text-accent bg-blue-600 transition">
                             View Details
                           </button>
                         </Link>

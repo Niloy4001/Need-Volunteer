@@ -239,7 +239,7 @@ const BeAVolunteer = () => {
         <div>
           <button
             type="submit"
-            className="w-full py-2 rounded-lg text-white hover:bg-[#2196F3] hover:text-accent bg-[#2196F3] transition"
+            className="w-full py-2 rounded-lg text-white hover:bg-blue-600 hover:text-accent bg-blue-600 transition"
           >
             Request
           </button>

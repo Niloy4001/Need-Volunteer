@@ -57,7 +57,7 @@ const DetailsPost = () => {
             </p>
             <div className="card-actions ">
               <Link to={`/beAVolunteer/${data._id}`}>
-                <button className="w-full btn text-white hover:bg-[#2196F3] hover:text-accent bg-[#2196F3] transition">
+                <button className="w-full btn text-white hover:bg-blue-600 hover:text-accent bg-blue-600 transition">
                   Be a Voluenteer
                 </button>
               </Link>

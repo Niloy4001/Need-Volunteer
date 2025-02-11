@@ -56,7 +56,7 @@ const MyVolunteerRequestPost = () => {
       <div className="overflow-x-auto bg-white p-5">
         <table className="table">
           {/* head */}
-          <thead className="bg-primary text-white">
+          <thead className="bg-blue-600 text-white">
             <tr>
               <th>Title</th>
               <th>Organizer</th>
@@ -87,7 +87,7 @@ const MyVolunteerRequestPost = () => {
                   <td>
                     {post.organizer.name}
                     <br />
-                    <span className="badge badge-ghost bg-primary text-white badge-sm">
+                    <span className="badge badge-ghost bg-blue-600 text-white badge-sm">
                       {post.organizer.email}
                     </span>
                   </td>

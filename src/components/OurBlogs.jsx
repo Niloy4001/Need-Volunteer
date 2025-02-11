@@ -35,7 +35,7 @@ const OurBlogs = () => {
 
                 <div className=" collapse">
                   <input type="checkbox" className="peer min-h-0" />
-                  <div className="btn text-white hover:bg-[#2196F3] hover:text-accent bg-[#2196F3] btn-sm  collapse-title  ">
+                  <div className="btn text-white hover:bg-blue-600 hover:text-accent bg-blue-600 btn-sm  collapse-title  ">
                     Read...
                   </div>
                   <div className="collapse-content  text-primary ">

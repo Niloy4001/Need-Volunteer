@@ -165,7 +165,7 @@ const AddPost = () => {
         <div>
           <button
             type="submit"
-            className="w-full py-2 rounded-lgtext-white hover:bg-[#2196F3] hover:text-accent bg-[#2196F3] text-white transition"
+            className="w-full py-2 rounded-lgtext-white hover:bg-blue-600 hover:text-accent bg-blue-600 text-white transition"
           >
             Add Post
           </button>
