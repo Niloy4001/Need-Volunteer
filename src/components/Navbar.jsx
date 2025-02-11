@@ -6,6 +6,8 @@ import { MdOutlineLightMode } from "react-icons/md";
 import getFromLs from "../utility";
 
 const Navbar = () => {
+  const { user, logOut } = useContext(AuthContext);
+
   const links = (
     <>
       <li>
@@ -48,7 +50,8 @@ const Navbar = () => {
           About Us
         </NavLink>
       </li>
-      <li className="dropdown dropdown-bottom">
+      {
+        user && <li className="dropdown dropdown-bottom">
         <div tabIndex={0} role="button" className=" font-medium btn-sm">
           My Profile
         </div>
@@ -79,10 +82,11 @@ const Navbar = () => {
           </li>
         </ul>
       </li>
+      }
     </>
   );
 
-  const { user, logOut } = useContext(AuthContext);
+  
 
   const navigate = useNavigate();
   const handleLogOut = () => {
@@ -90,29 +94,7 @@ const Navbar = () => {
     navigate("/");
   };
 
-  // // implement light dark theme mode
-  // const [mode, setMode] = useState(getFromLs);
-
-  // useEffect(() => {
-  //   // if (mode === "light") {
-  //   // document.getElementById("html").setAttribute('data-theme', mode);
-  //   document.documentElement.setAttribute("data-theme", mode);
-  //   // }
-  //   // if (mode === "dark") {
-  //   //   document.getElementById("html").setAttribute('data-theme', 'dark');
-  //   // }
-  // }, [mode]);
-
-  // const handleMode = () => {
-  //   if (mode === "light") {
-  //     localStorage.setItem("theme", "dark");
-  //     setMode(getFromLs);
-  //   }
-  //   if (mode === "dark") {
-  //     localStorage.setItem("theme", "light");
-  //     setMode(getFromLs);
-  //   }
-  // };
+ 
 
   return (
     <div className="bg-primary text-white sticky top-0 z-10">
