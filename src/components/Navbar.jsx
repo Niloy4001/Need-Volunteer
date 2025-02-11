@@ -52,7 +52,7 @@ const Navbar = () => {
       </li>
       {
         user && <li className="dropdown dropdown-bottom">
-        <div tabIndex={0} role="button" className=" font-semibold btn-sm">
+        <div tabIndex={0} role="button" className=" font-semibold btn-md py-1 px-2 text-lg">
           My Profile
         </div>
         <ul
