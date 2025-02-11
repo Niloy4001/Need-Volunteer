@@ -14,7 +14,7 @@ const Navbar = () => {
         <NavLink
           to="/"
           className={({ isActive }) =>
-            isActive ? "active-class" : "default-class font-medium"
+            isActive ? "active-class" : "default-class"
           }
         >
           Home
@@ -24,7 +24,7 @@ const Navbar = () => {
         <NavLink
           to="/allPost"
           className={({ isActive }) =>
-            isActive ? "active-class" : "default-class font-medium"
+            isActive ? "active-class" : "default-class"
           }
         >
           All Volunteer Need Posts
@@ -34,7 +34,7 @@ const Navbar = () => {
         <NavLink
           to="/contact"
           className={({ isActive }) =>
-            isActive ? "active-class" : "default-class font-medium"
+            isActive ? "active-class" : "default-class"
           }
         >
           Contact
@@ -44,7 +44,7 @@ const Navbar = () => {
         <NavLink
           to="/about"
           className={({ isActive }) =>
-            isActive ? "active-class" : "default-class font-medium"
+            isActive ? "active-class" : "default-class"
           }
         >
           About Us
@@ -52,7 +52,7 @@ const Navbar = () => {
       </li>
       {
         user && <li className="dropdown dropdown-bottom">
-        <div tabIndex={0} role="button" className=" font-medium btn-sm">
+        <div tabIndex={0} role="button" className=" font-semibold btn-sm">
           My Profile
         </div>
         <ul
@@ -63,7 +63,7 @@ const Navbar = () => {
             <NavLink
               to="/addPost"
               className={({ isActive }) =>
-                isActive ? "active-class" : "default-class font-medium"
+                isActive ? "active-class" : "default-class"
               }
             >
               Add Volunteer need Post
@@ -74,7 +74,7 @@ const Navbar = () => {
             <NavLink
               to="/manageMyPost"
               className={({ isActive }) =>
-                isActive ? "active-class" : "default-class font-medium"
+                isActive ? "active-class" : "default-class"
               }
             >
               Manage My Posts
@@ -127,7 +127,7 @@ const Navbar = () => {
             </div>
             <ul
               tabIndex={0}
-              className="menu menu-sm dropdown-content bg-base-100 rounded-box z-10 mt-3 w-52 p-2 shadow"
+              className="menu menu-sm dropdown-content bg-primary rounded-box z-10 mt-3 w-52 p-2 shadow"
             >
               {links}
             </ul>
@@ -143,14 +143,6 @@ const Navbar = () => {
           <ul className="menu menu-horizontal px-1">{links}</ul>
         </div>
         <div className="navbar-end gap-1">
-          {/* <div
-            onClick={() => handleMode()}
-            className={`shadow-2xl ${
-              mode === "light" ? "text-[#2B3440]" : "text-white"
-            } border-[#2B3440]  btn btn-sm   rounded-full h-0`}
-          >
-            {mode === "light" ? <FaRegMoon /> : <MdOutlineLightMode />}
-          </div> */}
           {user ? (
             <>
               {/* Avatar */}
@@ -185,9 +177,6 @@ const Navbar = () => {
                   </li>
                 </ul>
               </div>
-              {/* <button onClick={handleLogOut} className="btn btn-sm">
-                Logout
-              </button> */}
             </>
           ) : (
             <>
