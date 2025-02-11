@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import SkeletonLoader from "./SkeletonLoader";
 
 const VolunteerNeedsNow = () => {
   const [posts, setPosts] = useState([]);
@@ -57,7 +58,8 @@ const VolunteerNeedsNow = () => {
       )}
       {posts.length < 1 && (
         <div className="w-full h-400px flex justify-center items-center">
-          <span className="loading loading-bars loading-lg"></span>
+          {/* <span className="loading loading-bars loading-lg"></span> */}
+          <SkeletonLoader></SkeletonLoader>
         </div>
       )}
       <div className="flex justify-center py-6">

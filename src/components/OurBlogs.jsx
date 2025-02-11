@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import SkeletonLoader from "./SkeletonLoader";
 
 const OurBlogs = () => {
   const [blogs, setBlogs] = useState([]);
@@ -49,7 +50,7 @@ const OurBlogs = () => {
       )}
       {blogs.length === 0 && (
         <div className="w-full h-400px flex justify-center items-center">
-          <span className="loading loading-bars loading-lg"></span>
+          <SkeletonLoader></SkeletonLoader>
         </div>
       )}
     </div>

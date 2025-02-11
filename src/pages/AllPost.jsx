@@ -4,6 +4,7 @@ import { BsGrid3X3GapFill } from "react-icons/bs";
 import { MdCancel } from "react-icons/md";
 import { PiTableBold } from "react-icons/pi";
 import { Link } from "react-router-dom";
+import SkeletonLoader from "../components/SkeletonLoader";
 
 const AllPost = () => {
   const [posts, setPosts] = useState([]);
@@ -202,7 +203,7 @@ const AllPost = () => {
           ))}
         {posts.length < 1 && (
           <div className="w-full h-400px flex justify-center items-center">
-            <span className="loading loading-bars loading-lg"></span>
+            <SkeletonLoader></SkeletonLoader>
           </div>
         )}
       </div>
